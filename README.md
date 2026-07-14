@@ -1,10 +1,26 @@
 # My Personal Project
 
-## A subtitle
+## What will the application do?
 
-A *bulleted* list:
-- item 1
-- item 2
-- item 3
+- The application will allow the **user** to enter their records for each phase of a **hyrox competition**.
 
-An example of text with **bold** and *italic* fonts.  
+- **User** can add their records for a complete hyro instant, phase by phase as well in case they wanted to try out a compelte
+
+- **User** will be asked to fill out a brief of their personal information such as full name, age, gender, weight, and height.
+
+- Various **Hyrox Competitions** could be added to the competitions archive with *gender* (if any criteria), *weight class*, and *minimum records* required to enter
+
+## Who will use it?
+
+- This program will be used by athletes that are training to take part in a **hyrox competition**
+- It will help them understand if they could take part in the competitions that they are aiming for or not
+- It could also be used by hyrox training academies to keep track of their athletes' progress
+
+## Why is this project of interest to you?
+
+- I have a coworker that trains for hyrox and when he was telling me about these competitions, I noticed thaat is there are weight and gender classes, and most significantly minimum record criterias, it might be confusing for the athletes to see which competition to participate in.
+
+- Also, keeping track of all of the **competitions** with their requirments will be helpful for the athletes so they do not have ot jump around hyrox holders' websites for information.
+
+
+
