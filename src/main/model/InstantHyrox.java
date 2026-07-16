@@ -2,9 +2,9 @@ package model;
 
 public class InstantHyrox {
     private String title;
-    private int timeSkiErg;
+    private int timeSkiErg;       // all of the times are recorded in minutes
     private int timeSledPush; 
-    private int timeSledPull;     // all of the times are recorded in minutes
+    private int timeSledPull;     
     private int timeBBJ;          // Burpee Board Jump
     private int timeRowing;
     private int timeFC;           // Farmers Carry
