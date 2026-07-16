@@ -97,6 +97,7 @@ public class HyroxApp {
     // EFFECTS: makes a hyrx instant and adds to the uers history
     // MODIFIES: this
     private void doRecordInstant() {
+        input.nextLine();
         System.out.println("Enter The Instant Title: $");
         String title = input.nextLine();
         System.out.println("Enter Time For Ski Erg: $");
