@@ -2,6 +2,7 @@ package model;
 
 import java.util.ArrayList;
 
+// wishlist of the possible future hyroxs the user wants to participate
 public class Wishlist {
     private ArrayList<Hyrox> wishList;
 

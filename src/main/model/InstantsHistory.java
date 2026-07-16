@@ -2,6 +2,7 @@ package model;
 
 import java.util.ArrayList;
 
+// list of user's previous hyrox attepmts
 public class InstantsHistory {
     private ArrayList<InstantHyrox> listOfInstants;
 

@@ -2,6 +2,7 @@ package model;
 
 import java.util.ArrayList;
 
+// list of hyrox competitions
 public class Competitions {
     private ArrayList<Hyrox> listofHyrox;
 

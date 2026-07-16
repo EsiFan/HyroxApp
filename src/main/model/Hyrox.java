@@ -1,5 +1,6 @@
 package model;
 
+// setup and the requirments of a hyrox competition
 public class Hyrox {
     private String title;
     private int weightClass;

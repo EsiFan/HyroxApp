@@ -1,5 +1,6 @@
 package model;
 
+// a practice hyrox run
 public class InstantHyrox {
     private String title;
     private int timeSkiErg; // all of the times are recorded in minutes
