@@ -11,7 +11,7 @@ public class TestHyrox {
 
     @BeforeEach
     void runBefore() {
-        hyroxTest = new Hyrox ("Grand Hyrox", 180, "mixed", 90);
+        hyroxTest = new Hyrox("Grand Hyrox", 180, "mixed", 90);
     }
 
     @Test
