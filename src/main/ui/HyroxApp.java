@@ -10,7 +10,7 @@ public class HyroxApp {
 
     // EFFECTS: tuns the hyrox application
     public HyroxApp() {
-        
+        runHyrox();
     }
 
     // MODIFIES: this
