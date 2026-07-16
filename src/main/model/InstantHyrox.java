@@ -34,7 +34,8 @@ public class InstantHyrox {
 
     // EFFECTS: calculates the total time of the attempt
     public int totalTime() {
-        return 0;
+        return timeSkiErg + timeSledPush + timeSledPull + timeBBJ + 
+            timeRowing + timeFC + timeSL + timeWallBall + sumTimeRuns;
     }
 
     public String getTitle() {
