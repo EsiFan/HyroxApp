@@ -140,6 +140,11 @@ public class HyroxApp {
         wishlist.addHyroxs(wl);
     }
 
+    // EFFECTS: prints out the wishlist of the comps the user is possibly going to
+    private void doViewWishlist() {
+        
+    }
+
     // EFFECTS: records the gender of the hyrox and rejectss invalid entries
     // MODIFIES: this
     private String recordGender() {
