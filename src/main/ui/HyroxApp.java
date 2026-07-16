@@ -142,7 +142,13 @@ public class HyroxApp {
 
     // EFFECTS: prints out the wishlist of the comps the user is possibly going to
     private void doViewWishlist() {
-        
+        int wlLength = wishlist.getWishlist().size();
+        ArrayList<Hyrox> wl = wishlist.getWishlist();
+        System.out.println("The list of Hyroxs that you are eligible for: $");
+        for (int i = 0; i < wlLength; i++) {
+            Hyrox h = wl.get(i);
+            System.out.println(h.getTitle());
+        }
     }
 
     // EFFECTS: records the gender of the hyrox and rejectss invalid entries
