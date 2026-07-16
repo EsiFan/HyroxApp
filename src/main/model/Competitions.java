@@ -13,7 +13,7 @@ public class Competitions {
     // EFFECTS: adds the given comp to listOfHyrox
     // MODIFIES: this
     public void addComp(Hyrox comp) {
-        
+        listofHyrox.add(comp);
     }
 
     public ArrayList<Hyrox> getCompetitions() {
