@@ -10,6 +10,12 @@ public class Competitions {
         listOfHyrox = new ArrayList<Hyrox>();
     }
 
+    // EFFECTS: adds the given hyrox to the listOfHyrox
+    // MODIFIES: this
+    public void addHyrox(Hyrox hyrox) {
+        
+    }
+
     public ArrayList<Hyrox> getCompetitions() {
         return listOfHyrox;
     }
