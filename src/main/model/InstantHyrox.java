@@ -29,6 +29,11 @@ public class InstantHyrox {
         this.sumTimeRuns = sumTimeRuns;
     }
 
+    // EFFECTS: calculates the total time of the attempt
+    public int totalTime() {
+        return 0;
+    }
+
     public String getTitle() {
         return this.title;
     }
