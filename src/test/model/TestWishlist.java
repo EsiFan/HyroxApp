@@ -9,15 +9,15 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 
 
-public class TestCompetitions {
-    private Competitions testCompetitions;
+public class TestWishlist {
+    private Wishlist testWishlist;
     private Hyrox hyroxTest1;
     private Hyrox hyroxTest2;
     private ArrayList<Hyrox> hyroxsTests;
 
     @BeforeEach
     void runBefore() {
-        testCompetitions = new Competitions();
+        testWishlist = new Wishlist();
         hyroxTest1 = new Hyrox("Grand Hyrox", 180, "mixed", 90);
         hyroxTest2 = new Hyrox("Hyrox Open", 150, "men", 70);
         hyroxsTests = new ArrayList<Hyrox>();
@@ -25,35 +25,34 @@ public class TestCompetitions {
 
     @Test
     void testCompetitionsConstructor() {
-        assertTrue(testCompetitions.getCompetitions().isEmpty());
+        assertTrue(testWishlist.getWishlist().isEmpty());
     }
 
     @Test
     void testAddHyroxsSingleElementList() {
         hyroxsTests.add(hyroxTest1);
-        testCompetitions.addHyroxs(hyroxsTests);
-        assertEquals(testCompetitions.getCompetitions().size(), 1);
-        hyroxsTests.clear();
+        testWishlist.addHyroxs(hyroxsTests);
+        assertEquals(testWishlist.getWishlist().size(), 1);
     }
 
     @Test
     void testAddHyroxsMultipleElementList() {
         hyroxsTests.add(hyroxTest1);
         hyroxsTests.add(hyroxTest2);
-        testCompetitions.addHyroxs(hyroxsTests);
-        assertEquals(testCompetitions.getCompetitions().size(), 2);
+        testWishlist.addHyroxs(hyroxsTests);
+        assertEquals(testWishlist.getWishlist().size(), 2);
     }
 
     @Test
     void testAddHyroxsMultipleLists() {
         hyroxsTests.add(hyroxTest1);
-        testCompetitions.addHyroxs(hyroxsTests);
-        assertEquals(testCompetitions.getCompetitions().size(), 1);
+        testWishlist.addHyroxs(hyroxsTests);
+        assertEquals(testWishlist.getWishlist().size(), 1);
         hyroxsTests.clear();
         hyroxsTests.add(hyroxTest1);
         hyroxsTests.add(hyroxTest2);
-        testCompetitions.addHyroxs(hyroxsTests);
-        assertEquals(testCompetitions.getCompetitions().size(), 3);
+        testWishlist.addHyroxs(hyroxsTests);
+        assertEquals(testWishlist.getWishlist().size(), 3);
     }
     
 }

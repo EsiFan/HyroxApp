@@ -16,7 +16,7 @@ public class Wishlist {
         wishList.addAll(hyroxs);
     }
 
-    public ArrayList<Hyrox> getWishList() {
+    public ArrayList<Hyrox> getWishlist() {
         return wishList;
     }
 }
