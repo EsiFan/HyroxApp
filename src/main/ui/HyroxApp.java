@@ -11,6 +11,7 @@ import java.util.Scanner;
 public class HyroxApp {
     private Scanner input;
     private Competitions competitions;
+    private InstantsHistory instantsHistory;
 
     // EFFECTS: tuns the hyrox application
     public HyroxApp() {
@@ -72,6 +73,34 @@ public class HyroxApp {
         int minTimeRec = input.nextInt();
         Hyrox hyrox = new Hyrox(title, weightClass, gender, minTimeRec);
         competitions.addComp(hyrox);
+    }
+
+    // EFFECTS: makes a hyrx instant and adds to the uers history
+    // MODIFIES: this
+    private void doRecordInstant() {
+        System.out.println("Enter The Instant Title: $");
+        String title = input.nextLine();
+        System.out.println("Enter Time For Ski Erg: $");
+        int timeSkiErg = input.nextInt();
+        System.out.println("Enter Time For Sled Push: $");
+        int timeSPush = input.nextInt();
+        System.out.println("Enter Time For Sled Pull: $");
+        int timeSPull = input.nextInt();
+        System.out.println("Enter Time For Burpee Board Jump: $");
+        int timeBBJ = input.nextInt();
+        System.out.println("Enter Time For Rowing: $");
+        int timeRowing = input.nextInt();
+        System.out.println("Enter Time For Farmers Carry: $");
+        int timeFC = input.nextInt();
+        System.out.println("Enter Time For Sandbag Lunges: $");
+        int timeSL = input.nextInt();
+        System.out.println("Enter Time For WallBall: $");
+        int timeWallBall = input.nextInt();
+        System.out.println("Enter Sum Time for Running: $");
+        int sumTimeRuns = input.nextInt();
+        InstantHyrox instance = new InstantHyrox(title, timeSkiErg, timeSPush, timeSPull, timeBBJ, timeRowing, timeFC,
+            timeSL, timeWallBall, sumTimeRuns);
+        instantsHistory.addInstant(instance);
     }
     
     // EFFECTS: records the gender of the hyrox and rejectss invalid entries
