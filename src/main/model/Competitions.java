@@ -3,10 +3,14 @@ package model;
 import java.util.ArrayList;
 
 public class Competitions {
-    private ArrayList<Hyrox> competitions;
+    private ArrayList<Hyrox> listOfHyrox;
 
     // EFFECTS: constructs an empty list of Hyroxes
-    public void Competitions() {
-        
+    public Competitions() {
+
+    }
+
+    public ArrayList<Hyrox> getCompetitions() {
+        return null;
     }
 }
