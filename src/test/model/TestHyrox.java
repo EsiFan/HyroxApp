@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 
 public class TestHyrox {
     private Hyrox hyroxTest;
+
     @BeforeEach
     void runBefore() {
         hyroxTest = new Hyrox ("Grand Hyrox", 180, "mixed", 90);
