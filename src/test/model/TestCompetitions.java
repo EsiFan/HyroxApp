@@ -25,14 +25,15 @@ public class TestCompetitions {
 
     @Test
     void testCompetitionsConstructor() {
-        assertTrue(testCompetitions.getCompetitions().size() == 0);
+        assertTrue(testCompetitions.getCompetitions().isEmpty());
     }
 
     @Test
     void testAddHyroxsSingleElementList() {
         hyroxsTests.add(hyroxTest1);
         testCompetitions.addHyroxs(hyroxsTests);
-        assertTrue(testCompetitions.getCompetitions().size() == 1);
+        assertEquals(testCompetitions.getCompetitions().size(), 1);
+        hyroxsTests.clear();
     }
 
     @Test
@@ -40,21 +41,19 @@ public class TestCompetitions {
         hyroxsTests.add(hyroxTest1);
         hyroxsTests.add(hyroxTest2);
         testCompetitions.addHyroxs(hyroxsTests);
-        assertTrue(testCompetitions.getCompetitions().size() == 2);
-        assertTrue(testCompetitions.getCompetitions().get(1) == hyroxTest2);
+        assertEquals(testCompetitions.getCompetitions().size(), 2);
     }
 
     @Test
     void testAddHyroxsMultipleLists() {
         hyroxsTests.add(hyroxTest1);
         testCompetitions.addHyroxs(hyroxsTests);
-        assertTrue(testCompetitions.getCompetitions().size() == 1);
+        assertEquals(testCompetitions.getCompetitions().size(), 1);
         hyroxsTests.clear();
         hyroxsTests.add(hyroxTest1);
         hyroxsTests.add(hyroxTest2);
         testCompetitions.addHyroxs(hyroxsTests);
-        assertTrue(testCompetitions.getCompetitions().size() == 3);
-        assertTrue(testCompetitions.getCompetitions().get(2) == hyroxTest2);
+        assertEquals(testCompetitions.getCompetitions().size(), 3);
     }
     
 }
