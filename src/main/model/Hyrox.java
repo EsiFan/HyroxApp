@@ -15,7 +15,10 @@ public class Hyrox {
     //          to "male", "female", or "mixed"; minTimeRec
     //          is set to the given minimmum time record in minutes
     public Hyrox(String title, int weightClass, String gender, int minTimeRec) {
-        
+        this.title = title;
+        this.weightClass = weightClass;
+        this.gender = gender;
+        this.minTimeRec = minTimeRec;
     }
 
     public String getTitle() {
