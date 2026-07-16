@@ -43,5 +43,18 @@ public class TestCompetitions {
         assertTrue(testCompetitions.getCompetitions().size() == 2);
         assertTrue(testCompetitions.getCompetitions().get(1) == hyroxTest2);
     }
+
+    @Test
+    void testAddHyroxsMultipleLists() {
+        hyroxsTests.add(hyroxTest1);
+        testCompetitions.addHyroxs(hyroxsTests);
+        assertTrue(testCompetitions.getCompetitions().size() == 1);
+        hyroxsTests.clear();
+        hyroxsTests.add(hyroxTest1);
+        hyroxsTests.add(hyroxTest2);
+        testCompetitions.addHyroxs(hyroxsTests);
+        assertTrue(testCompetitions.getCompetitions().size() == 3);
+        assertTrue(testCompetitions.getCompetitions().get(2) == hyroxTest2);
+    }
     
 }
