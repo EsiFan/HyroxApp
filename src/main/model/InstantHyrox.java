@@ -1,7 +1,6 @@
 package model;
 
 public class InstantHyrox {
-    
     private String title;
     private int timeSkiErg, timeSledPush, timeSledPull,    // all of the times are recorded in minutes
     timeBBJ,     //Burpee Board Jump
@@ -19,5 +18,45 @@ public class InstantHyrox {
     public InstantHyrox (String title, int timeSE, int timeSPush, int timeSPull, int timeBBJ, int timeR, int timeFC, 
     int timeSL, int timeWB, int sumTimeRuns) {
 
+    }
+
+    public String getTitle() {
+        return this.title;
+    }
+
+    public int getTimeSkiErg() {
+        return this.timeSkiErg;
+    }
+
+    public int getTimeSledPush() {
+        return this.timeSledPush;
+    }
+
+    public int getTimeSledPull() {
+        return this.timeSledPull;
+    }
+
+    public int getTimeBurpeeBoardJump() {
+        return this.timeBBJ;
+    }
+
+    public int getTimeRowing() {
+        return this.timeRowing;
+    }
+
+    public int getTimeFarmersCarry() {
+        return this.timeFC;
+    }
+
+    public int getTimeSandbagLounges() {
+        return this.timeSL;
+    }
+
+    public int getTimeWallBall() {
+        return this.timeWallBall;
+    }
+
+    public int getTimeSumTimeRuns() {
+        return this.sumTimeRuns;
     }
 }
