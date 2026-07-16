@@ -28,4 +28,9 @@ public class TestInstantHyrox {
         assertEquals(8,  instantTest.getTimeWallBall());
         assertEquals(12, instantTest.getSumTimeRuns());
     }
+
+    @Test
+    void testTotalTime() {
+        assertEquals(72, instantTest.totalTime());
+    }
 }
