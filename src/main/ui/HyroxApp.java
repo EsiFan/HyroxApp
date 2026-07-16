@@ -47,11 +47,11 @@ public class HyroxApp {
     // MODIFIES: this
     // EFFECTS: processes user key inputs
     private void processKey(String command) {
-        if (command.equals("d")) {
+        if (command.equals("h")) {
             doMakeHyrox();
-        } else if (command.equals("w")) {
+        } else if (command.equals("i")) {
             doRecordInstant();
-        } else if (command.equals("t")) {
+        } else if (command.equals("w")) {
             doViewWishlist();
         } else {
             System.out.println("Selection not valid...");
