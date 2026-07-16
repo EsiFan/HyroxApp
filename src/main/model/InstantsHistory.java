@@ -10,6 +10,12 @@ public class InstantsHistory {
         listOfInstants = new ArrayList<Hyrox>();
     }
 
+    // EFFECTS: adds the give instant to listOfInstants
+    // MODIFIES: this
+    public void addInstant(InstantHyrox instant) {
+
+    }
+
     public ArrayList<Hyrox> getInstantsHistory() {
         return listOfInstants;
     }
