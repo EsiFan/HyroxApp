@@ -135,7 +135,7 @@ public class HyroxApp {
         for (int i = 0; i < lengthComp; i++) {
             Hyrox cmp = competitions.getCompetitions().get(i);
             int minRec = cmp.getMinTimeRec();
-            if (minRec <= record) {
+            if (minRec >= record) {
                 wl.add(cmp);
             }
         }
