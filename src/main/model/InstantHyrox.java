@@ -56,7 +56,7 @@ public class InstantHyrox {
         return this.timeWallBall;
     }
 
-    public int getTimeSumTimeRuns() {
+    public int getSumTimeRuns() {
         return this.sumTimeRuns;
     }
 }
