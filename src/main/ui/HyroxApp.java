@@ -82,11 +82,13 @@ public class HyroxApp {
     // EFFECTS: makes a hyrox and adds it to the list of competitions
     // MODIFIES: this
     private void doMakeHyrox() {
+        input.nextLine();
         System.out.print("Enter The Hyrox Title: ");
         String title = input.nextLine();
         System.out.print("Enter The Hyrox Weight Class: ");
         int weightClass = input.nextInt();
         String gender = recordGender();
+        System.out.println("kjnnbhjuhjioubhjhuiounkh");
         System.out.print("Enter The Hyrox Minimum Time Record: i");
         int minTimeRec = input.nextInt();
         Hyrox hyrox = new Hyrox(title, weightClass, gender, minTimeRec);
@@ -157,16 +159,20 @@ public class HyroxApp {
     private String recordGender() {
         System.out.print("Enter The Hyrox Gender: $");
         String choice;
-        while (true) {
+        boolean go = true;
+        input.nextLine();
+        while (go) {
             choice = input.nextLine();
             choice = choice.toLowerCase();
 
             if (choice == "male" || choice == "female" || choice == "mixed") {
+                // go = false;
                 return choice;
             } else {
                 System.out.println("gender has to be chosen from male/female/mixed ...");
             }
         }
+        return choice;
     }
  
 }
