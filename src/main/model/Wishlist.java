@@ -2,11 +2,11 @@ package model;
 
 import java.util.ArrayList;
 
-public class Competitions {
+public class Wishlist {
     private ArrayList<Hyrox> listOfHyrox;
 
     // EFFECTS: constructs an empty list of Hyroxes
-    public Competitions() {
+    public Wishlist() {
         listOfHyrox = new ArrayList<Hyrox>();
     }
 
