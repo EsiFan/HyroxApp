@@ -4,6 +4,7 @@ import model.Competitions;
 import model.Hyrox;
 import model.InstantHyrox;
 import model.InstantsHistory;
+import model.Wishlist;
 
 import java.util.*;
 
@@ -12,6 +13,8 @@ public class HyroxApp {
     private Scanner input;
     private Competitions competitions;
     private InstantsHistory instantsHistory;
+    private Wishlist wishlist;
+    private ArrayList<Hyrox> wl;
 
     // EFFECTS: tuns the hyrox application
     public HyroxApp() {
@@ -23,6 +26,8 @@ public class HyroxApp {
     private void runHyrox() {
         boolean carryOn = true;
         String key = null;
+
+        init();
 
         while (carryOn) {
             showMenu();
@@ -36,6 +41,15 @@ public class HyroxApp {
         }
 
         System.out.println("\nExitting application now...");
+    }
+
+    // EFFECTS: Initializes the aspects of the app
+    // MODIFIES: this
+    private void init() {
+        competitions = new Competitions();
+        instantsHistory = new InstantsHistory();
+        wishlist = new Wishlist();
+        wl = new ArrayList<Hyrox>();
     }
 
     // EFFECTS: shows menu options to the user
@@ -110,7 +124,20 @@ public class HyroxApp {
     //          that user is eligible for
     // MODIFIES: this
     private void doUpdateWishlist() {
+        int lengthComp = competitions.getCompetitions().size();
+        int lengthInsHis = instantsHistory.getInstantsHistory().size();
+        InstantHyrox lastInstant = instantsHistory.getInstantsHistory().get(lengthInsHis - 1);
+        int record = lastInstant.totalTime();
         
+        for (int i = 0; i < lengthComp; i++) {
+            Hyrox cmp = competitions.getCompetitions().get(i);
+            int minRec = cmp.getMinTimeRec();
+            if (minRec <= record) {
+                wl.add(cmp);
+            }
+        }
+
+        wishlist.addHyroxs(wl);
     }
 
     // EFFECTS: records the gender of the hyrox and rejectss invalid entries
