@@ -17,7 +17,16 @@ public class InstantHyrox {
     //          and sumTimeRuns are all set to give time records.
     public InstantHyrox (String title, int timeSE, int timeSPush, int timeSPull, int timeBBJ, int timeR, int timeFC, 
     int timeSL, int timeWB, int sumTimeRuns) {
-
+        this.title = title;
+        this.timeSkiErg = timeSE;
+        this.timeSledPush = timeSPush;
+        this.timeSledPull = timeSPull;
+        this.timeBBJ = timeBBJ;
+        this.timeRowing = timeR;
+        this.timeFC = timeFC;
+        this.timeSL = timeSL;
+        this.timeWallBall = timeWB;
+        this.sumTimeRuns = sumTimeRuns;
     }
 
     public String getTitle() {
