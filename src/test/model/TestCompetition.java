@@ -23,5 +23,20 @@ public class TestCompetition {
     void testCompetitionsConstructor() {
         assertTrue(testCompetitions.getCompetitions().isEmpty());
     }
+
+    @Test
+    void testaddComp() {
+        testCompetitions.addComp(compTest1);
+        assertEquals(testCompetitions.getCompetitions().size(), 1);
+    }
+
+    @Test
+    void testaddCompMultiplTimes() {
+        testCompetitions.addComp(compTest1);
+        assertEquals(testCompetitions.getCompetitions().size(), 1);
+
+        testCompetitions.addComp(compTest2);
+        assertEquals(testCompetitions.getCompetitions().size(), 2);
+    }
     
 }
