@@ -82,12 +82,12 @@ public class HyroxApp {
     // EFFECTS: makes a hyrox and adds it to the list of competitions
     // MODIFIES: this
     private void doMakeHyrox() {
-        System.out.print("Enter The Hyrox Title: $");
+        System.out.print("Enter The Hyrox Title: ");
         String title = input.nextLine();
-        System.out.print("Enter The Hyrox Weight Class: $");
+        System.out.print("Enter The Hyrox Weight Class: ");
         int weightClass = input.nextInt();
         String gender = recordGender();
-        System.out.print("Enter The Hyrox Minimum Time Record: $");
+        System.out.print("Enter The Hyrox Minimum Time Record: i");
         int minTimeRec = input.nextInt();
         Hyrox hyrox = new Hyrox(title, weightClass, gender, minTimeRec);
         competitions.addComp(hyrox);
@@ -117,7 +117,7 @@ public class HyroxApp {
         System.out.println("Enter Sum Time for Running: $");
         int sumTimeRuns = input.nextInt();
         InstantHyrox instance = new InstantHyrox(title, timeSkiErg, timeSPush, timeSPull, timeBBJ, timeRowing, timeFC,
-            timeSL, timeWallBall, sumTimeRuns);
+                timeSL, timeWallBall, sumTimeRuns);
         instantsHistory.addInstant(instance);
     }
     
