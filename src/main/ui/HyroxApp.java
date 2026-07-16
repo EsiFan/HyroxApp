@@ -130,6 +130,7 @@ public class HyroxApp {
         int lengthComp = competitions.getCompetitions().size();
         int lengthInsHis = instantsHistory.getInstantsHistory().size();
         int record;
+        wl.clear();
         if (!(lengthInsHis == 0)) {
             InstantHyrox lastInstant = instantsHistory.getInstantsHistory().get(lengthInsHis - 1);
             record = lastInstant.totalTime();
