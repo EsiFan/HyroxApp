@@ -56,9 +56,9 @@ public class HyroxApp {
     // EFFECTS: shows menu options to the user
     private void showMenu() {
         System.out.println("\nOptions:");
-        System.out.println("\th -> Make Hyrox");
-        System.out.println("\ti -> Record and instant");
-        System.out.println("\tu -> update wishlist");
+        System.out.println("\th -> Make a Hyrox");
+        System.out.println("\ti -> Record a practice hyrox");
+        System.out.println("\tu -> update wishlist with eligible");
         System.out.println("\tw -> view wishlist");
         System.out.println("\te -> exit");
     }
