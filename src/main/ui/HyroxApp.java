@@ -88,8 +88,7 @@ public class HyroxApp {
         System.out.print("Enter The Hyrox Weight Class: ");
         int weightClass = input.nextInt();
         String gender = recordGender();
-        System.out.println("kjnnbhjuhjioubhjhuiounkh");
-        System.out.print("Enter The Hyrox Minimum Time Record: i");
+        System.out.print("Enter The Hyrox Minimum Time Record: ");
         int minTimeRec = input.nextInt();
         Hyrox hyrox = new Hyrox(title, weightClass, gender, minTimeRec);
         competitions.addComp(hyrox);
@@ -122,16 +121,16 @@ public class HyroxApp {
                 timeSL, timeWallBall, sumTimeRuns);
         instantsHistory.addInstant(instance);
     }
-    
-    // EFFECTS: updates thee wishliist with the hyroxes 
-    //          that user is eligible for
+
+    // EFFECTS: updates thee wishliist with the hyroxes
+    // that user is eligible for
     // MODIFIES: this
     private void doUpdateWishlist() {
         int lengthComp = competitions.getCompetitions().size();
         int lengthInsHis = instantsHistory.getInstantsHistory().size();
         InstantHyrox lastInstant = instantsHistory.getInstantsHistory().get(lengthInsHis - 1);
         int record = lastInstant.totalTime();
-        
+
         for (int i = 0; i < lengthComp; i++) {
             Hyrox cmp = competitions.getCompetitions().get(i);
             int minRec = cmp.getMinTimeRec();
@@ -158,21 +157,18 @@ public class HyroxApp {
     // MODIFIES: this
     private String recordGender() {
         System.out.print("Enter The Hyrox Gender: $");
-        String choice;
-        boolean go = true;
         input.nextLine();
-        while (go) {
-            choice = input.nextLine();
+        while (true) {
+            String choice = input.nextLine();
             choice = choice.toLowerCase();
 
-            if (choice == "male" || choice == "female" || choice == "mixed") {
-                // go = false;
+            if (choice.equals("male") || choice.equals("female")
+                    || choice.equals("mixed")) {
                 return choice;
             } else {
                 System.out.println("gender has to be chosen from male/female/mixed ...");
             }
         }
-        return choice;
     }
- 
+
 }
