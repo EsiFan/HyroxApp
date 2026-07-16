@@ -26,7 +26,7 @@ public class Hyrox {
         return this.weightClass;
     }
 
-    public String gender() {
+    public String getGender() {
         return this.gender;
     }
 
