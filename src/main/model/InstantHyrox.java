@@ -2,13 +2,13 @@ package model;
 
 public class InstantHyrox {
     private String title;
-    private int timeSkiErg;       // all of the times are recorded in minutes
-    private int timeSledPush; 
-    private int timeSledPull;     
-    private int timeBBJ;          // Burpee Board Jump
+    private int timeSkiErg; // all of the times are recorded in minutes
+    private int timeSledPush;
+    private int timeSledPull;
+    private int timeBBJ; // Burpee Board Jump
     private int timeRowing;
-    private int timeFC;           // Farmers Carry
-    private int timeSL;           // Sandbag Lunges
+    private int timeFC; // Farmers Carry
+    private int timeSL; // Sandbag Lunges
     private int timeWallBall;
     private int sumTimeRuns;
 
@@ -34,8 +34,8 @@ public class InstantHyrox {
 
     // EFFECTS: calculates the total time of the attempt
     public int totalTime() {
-        return timeSkiErg + timeSledPush + timeSledPull + timeBBJ + 
-            timeRowing + timeFC + timeSL + timeWallBall + sumTimeRuns;
+        return timeSkiErg + timeSledPush + timeSledPull + timeBBJ
+                + timeRowing + timeFC + timeSL + timeWallBall + sumTimeRuns;
     }
 
     public String getTitle() {
