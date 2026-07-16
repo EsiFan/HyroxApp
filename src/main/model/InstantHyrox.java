@@ -2,12 +2,15 @@ package model;
 
 public class InstantHyrox {
     private String title;
-    private int timeSkiErg, timeSledPush, timeSledPull, // all of the times are recorded in minutes
-            timeBBJ, // Burpee Board Jump
-            timeRowing,
-            timeFC, // Farmers Carry
-            timeSL, // Sandbag Lunges
-            timeWallBall, sumTimeRuns;
+    private int timeSkiErg;
+    private int timeSledPush; 
+    private int timeSledPull;     // all of the times are recorded in minutes
+    private int timeBBJ;          // Burpee Board Jump
+    private int timeRowing;
+    private int timeFC;           // Farmers Carry
+    private int timeSL;           // Sandbag Lunges
+    private int timeWallBall;
+    private int sumTimeRuns;
 
     // REQUIRES: time to be more than 0
     // requires all of the times for the 8 phases to be above 0
