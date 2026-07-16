@@ -26,6 +26,6 @@
 
 - As a user I want to be able to add a hyrox instant with time records for each of the 8 phases in the competition.
 - As a user I want ot be able to add a competition with a title, weight class, gender, and minimum records needed to participate.
-- As a user I want to be able to record my time record for a singular phase rather than in a complete hyrox instant.
-- As a user I want to be able to see if I meet the criteria to participate in a specific hyrox that I am aiming to take part in.
+- As a user I want to be able to view the list of the hyrox competitions that I want to participate in.
+- As a user I want to be able to see if I meet the criteria to participate in a specific hyrox that I am aiming to take part in, and add it to my wishlist competitions.
 
