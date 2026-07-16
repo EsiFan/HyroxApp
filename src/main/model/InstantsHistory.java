@@ -7,7 +7,7 @@ public class InstantsHistory {
 
     // EFFECTS: constructs an empty list of Instants
     public InstantsHistory() {
-        listOfInstants = new ArrayList<Hyrox>()
+        listOfInstants = new ArrayList<Hyrox>();
     }
 
     public ArrayList<Hyrox> getInstantsHistory() {
