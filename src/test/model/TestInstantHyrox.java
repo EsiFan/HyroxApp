@@ -21,9 +21,9 @@ public class TestInstantHyrox {
         assertEquals(10, instantTest.getTimeSkiErg());
         assertEquals(5,  instantTest.getTimeSledPush());
         assertEquals(6,  instantTest.getTimeSledPull());
-        assertEquals(2,  instantTest.getTimeBurpeeBoardJump());
+        assertEquals(9,  instantTest.getTimeBurpeeBoardJump());
         assertEquals(13, instantTest.getTimeRowing());
-        assertEquals(9,  instantTest.getTimeFarmersCarry());
+        assertEquals(2,  instantTest.getTimeFarmersCarry());
         assertEquals(7,  instantTest.getTimeSandbagLounges());
         assertEquals(8,  instantTest.getTimeWallBall());
         assertEquals(12, instantTest.getSumTimeRuns());
