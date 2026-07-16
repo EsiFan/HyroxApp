@@ -129,18 +129,23 @@ public class HyroxApp {
     private void doUpdateWishlist() {
         int lengthComp = competitions.getCompetitions().size();
         int lengthInsHis = instantsHistory.getInstantsHistory().size();
-        InstantHyrox lastInstant = instantsHistory.getInstantsHistory().get(lengthInsHis - 1);
-        int record = lastInstant.totalTime();
+        int record;
+        if (!(lengthInsHis == 0)) {
+            InstantHyrox lastInstant = instantsHistory.getInstantsHistory().get(lengthInsHis - 1);
+            record = lastInstant.totalTime();
 
-        for (int i = 0; i < lengthComp; i++) {
-            Hyrox cmp = competitions.getCompetitions().get(i);
-            int minRec = cmp.getMinTimeRec();
-            if (minRec >= record) {
-                wl.add(cmp);
+            for (int i = 0; i < lengthComp; i++) {
+                Hyrox cmp = competitions.getCompetitions().get(i);
+                int minRec = cmp.getMinTimeRec();
+                if (minRec >= record && notDuplicate(cmp)) {
+                    wl.add(cmp);
+                }
             }
-        }
 
-        wishlist.addHyroxs(wl);
+            wishlist.addHyroxs(wl);
+        } else {
+            System.out.println("No instantces... ");
+        }
     }
 
     // EFFECTS: prints out the wishlist of the comps the user is possibly going to
@@ -175,6 +180,16 @@ public class HyroxApp {
                 System.out.println("gender has to be chosen from male/female/mixed ...");
             }
         }
+    }
+
+    // EFFECTS: checks if the given hyrox is a duplicate in wishlist or not
+    private boolean notDuplicate(Hyrox hyrox) {
+        for(Hyrox h : wishlist.getWishlist()) {
+            if (h.equals(hyrox)) {
+                return false;
+            }
+        }
+        return true;
     }
 
 }
