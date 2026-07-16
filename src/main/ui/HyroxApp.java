@@ -12,5 +12,11 @@ public class HyroxApp {
     public HyroxApp() {
         
     }
+
+    // MODIFIES: this
+    // EFFECTS: processes user input
+    private void runHyrox() {
+
+    }
     
 }
