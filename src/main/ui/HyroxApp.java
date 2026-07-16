@@ -85,10 +85,10 @@ public class HyroxApp {
         input.nextLine();
         System.out.print("Enter The Hyrox Title: ");
         String title = input.nextLine();
-        System.out.print("Enter The Hyrox Weight Class: ");
+        System.out.print("Enter The Hyrox Weight Class (in lbs): ");
         int weightClass = input.nextInt();
         String gender = recordGender();
-        System.out.print("Enter The Hyrox Minimum Time Record: ");
+        System.out.print("Enter The Hyrox Minimum Time Record (in mins): ");
         int minTimeRec = input.nextInt();
         Hyrox hyrox = new Hyrox(title, weightClass, gender, minTimeRec);
         competitions.addComp(hyrox);
@@ -98,25 +98,25 @@ public class HyroxApp {
     // MODIFIES: this
     private void doRecordInstant() {
         input.nextLine();
-        System.out.println("Enter The Instant Title: $");
+        System.out.println("Enter The Instant Title: ");
         String title = input.nextLine();
-        System.out.println("Enter Time For Ski Erg: $");
+        System.out.println("Enter Time For Ski Erg (in mins): ");
         int timeSkiErg = input.nextInt();
-        System.out.println("Enter Time For Sled Push: $");
+        System.out.println("Enter Time For Sled Push (in mins): ");
         int timeSPush = input.nextInt();
-        System.out.println("Enter Time For Sled Pull: $");
+        System.out.println("Enter Time For Sled Pull (in mins): ");
         int timeSPull = input.nextInt();
-        System.out.println("Enter Time For Burpee Board Jump: $");
+        System.out.println("Enter Time For Burpee Board Jump (in mins): ");
         int timeBBJ = input.nextInt();
-        System.out.println("Enter Time For Rowing: $");
+        System.out.println("Enter Time For Rowing (in mins): ");
         int timeRowing = input.nextInt();
-        System.out.println("Enter Time For Farmers Carry: $");
+        System.out.println("Enter Time For Farmers Carry (in mins): ");
         int timeFC = input.nextInt();
-        System.out.println("Enter Time For Sandbag Lunges: $");
+        System.out.println("Enter Time For Sandbag Lunges (in mins): ");
         int timeSL = input.nextInt();
-        System.out.println("Enter Time For WallBall: $");
+        System.out.println("Enter Time For WallBall (in mins): ");
         int timeWallBall = input.nextInt();
-        System.out.println("Enter Sum Time for Running: $");
+        System.out.println("Enter Sum Time for Running (in mins): ");
         int sumTimeRuns = input.nextInt();
         InstantHyrox instance = new InstantHyrox(title, timeSkiErg, timeSPush, timeSPull, timeBBJ, timeRowing, timeFC,
                 timeSL, timeWallBall, sumTimeRuns);
@@ -154,7 +154,7 @@ public class HyroxApp {
         int wlLength = wishlist.getWishlist().size();
         ArrayList<Hyrox> wl = wishlist.getWishlist();
         if (!(wlLength == 0)) {
-            System.out.println("The list of Hyroxs that you are eligible for: $");
+            System.out.println("The list of Hyroxs that you are eligible for: ");
 
             for (int i = 0; i < wlLength; i++) {
                 Hyrox h = wl.get(i);
@@ -168,7 +168,7 @@ public class HyroxApp {
     // EFFECTS: records the gender of the hyrox and rejectss invalid entries
     // MODIFIES: this
     private String recordGender() {
-        System.out.print("Enter The Hyrox Gender: $");
+        System.out.print("Enter The Hyrox Gender: ");
         input.nextLine();
         while (true) {
             String choice = input.nextLine();
