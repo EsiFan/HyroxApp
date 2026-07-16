@@ -147,10 +147,15 @@ public class HyroxApp {
     private void doViewWishlist() {
         int wlLength = wishlist.getWishlist().size();
         ArrayList<Hyrox> wl = wishlist.getWishlist();
-        System.out.println("The list of Hyroxs that you are eligible for: $");
-        for (int i = 0; i < wlLength; i++) {
-            Hyrox h = wl.get(i);
-            System.out.println(h.getTitle());
+        if (!(wlLength == 0)) {
+            System.out.println("The list of Hyroxs that you are eligible for: $");
+
+            for (int i = 0; i < wlLength; i++) {
+                Hyrox h = wl.get(i);
+                System.out.println(h.getTitle());
+            }
+        } else {
+            System.out.println("No competitions... ");
         }
     }
 
