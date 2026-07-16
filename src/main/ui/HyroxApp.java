@@ -33,7 +33,7 @@ public class HyroxApp {
             showMenu();
             key = input.next();
 
-            if (key.equals("q")) {
+            if (key.equals("e")) {
                 carryOn = false;
             } else {
                 processKey(key);
@@ -49,6 +49,7 @@ public class HyroxApp {
         competitions = new Competitions();
         instantsHistory = new InstantsHistory();
         wishlist = new Wishlist();
+        input = new Scanner(System.in);
         wl = new ArrayList<Hyrox>();
     }
 
