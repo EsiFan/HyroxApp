@@ -5,7 +5,7 @@ import model.Hyrox;
 import model.InstantHyrox;
 import model.InstantsHistory;
 
-import java.util.Scanner;
+import java.util.*;
 
 // Hyrox application
 public class HyroxApp {
@@ -43,6 +43,7 @@ public class HyroxApp {
         System.out.println("\nOptions:");
         System.out.println("\th -> Make Hyrox");
         System.out.println("\ti -> Record and instant");
+        System.out.println("\tu -> update wishlist");
         System.out.println("\tw -> view wishlist");
         System.out.println("\te -> exit");
     }
@@ -54,6 +55,8 @@ public class HyroxApp {
             doMakeHyrox();
         } else if (command.equals("i")) {
             doRecordInstant();
+        } else if (command.equals("u")) {
+            doUpdateWishlist();
         } else if (command.equals("w")) {
             doViewWishlist();
         } else {
@@ -103,6 +106,13 @@ public class HyroxApp {
         instantsHistory.addInstant(instance);
     }
     
+    // EFFECTS: updates thee wishliist with the hyroxes 
+    //          that user is eligible for
+    // MODIFIES: this
+    private void doUpdateWishlist() {
+        
+    }
+
     // EFFECTS: records the gender of the hyrox and rejectss invalid entries
     // MODIFIES: this
     private String recordGender() {
@@ -119,4 +129,5 @@ public class HyroxApp {
             }
         }
     }
+ 
 }
