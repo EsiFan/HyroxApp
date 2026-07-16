@@ -12,8 +12,8 @@ public class Competitions {
 
     // EFFECTS: adds the given hyrox to the listOfHyrox
     // MODIFIES: this
-    public void addHyrox(Hyrox hyrox) {
-        
+    public void addHyroxs(ArrayList<Hyrox> hyroxs) {
+
     }
 
     public ArrayList<Hyrox> getCompetitions() {
