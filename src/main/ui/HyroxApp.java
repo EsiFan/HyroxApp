@@ -25,7 +25,14 @@ public class HyroxApp {
             showMenu();
             key = input.next();
             
+            if (key.equals("q")) {
+                carryOn = false;
+            } else {
+                processKey(key);
+            }
         }
+
+        System.out.println("\nExitting application now...");
     }
 
     // EFFECTS: shows menu options to the user
@@ -35,6 +42,20 @@ public class HyroxApp {
         System.out.println("\ti -> Record and instant");
         System.out.println("\tw -> view wishlist");
         System.out.println("\te -> exit");
+    }
+
+    // MODIFIES: this
+    // EFFECTS: processes user key inputs
+    private void processKey(String command) {
+        if (command.equals("d")) {
+            doMakeHyrox();
+        } else if (command.equals("w")) {
+            doRecordInstant();
+        } else if (command.equals("t")) {
+            doViewWishlist();
+        } else {
+            System.out.println("Selection not valid...");
+        }
     }
     
 }
