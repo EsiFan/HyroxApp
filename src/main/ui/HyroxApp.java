@@ -8,7 +8,10 @@ import model.Wishlist;
 
 import java.util.*;
 
+import ca.ubc.cs.ExcludeFromJacocoGeneratedReport;
+
 // Hyrox application
+@ExcludeFromJacocoGeneratedReport
 public class HyroxApp {
     private Scanner input;
     private Competitions competitions;
@@ -60,6 +63,8 @@ public class HyroxApp {
         System.out.println("\ti -> Record a Practice Hyrox");
         System.out.println("\tu -> Update Wishlist ith Eligible");
         System.out.println("\tw -> View Wishlist");
+        System.out.println("\ts -> Save the Competitions, Practice Runs, and Wishlist to file");
+        System.out.println("\tl -> Load the Competitions, Practice Runs, and Wishlist to file");
         System.out.println("\te -> Exit");
     }
 
@@ -74,6 +79,10 @@ public class HyroxApp {
             doUpdateWishlist();
         } else if (command.equals("w")) {
             doViewWishlist();
+        } else if (command.equals("s")) {
+            // stub: save
+        } else if (command.equals("l")) {
+            // stub: load
         } else {
             System.out.println("Selection not valid...");
         }

@@ -8,7 +8,9 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 
+import ca.ubc.cs.ExcludeFromJacocoGeneratedReport;
 
+@ExcludeFromJacocoGeneratedReport
 public class TestWishlist {
     private Wishlist testWishlist;
     private Hyrox hyroxTest1;
