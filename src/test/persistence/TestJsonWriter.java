@@ -24,4 +24,21 @@ public class TestJsonWriter extends TestJson {
             // pass
         }
     }
+
+    @Test
+    void testWriterEmptyCompetitions() {
+        try {
+            Competitions comp = new Competitions();
+            JsonWriter writer = new JsonWriter("./data/testWriterEmptyCompetitions.json");
+            writer.open();
+            writer.write(comp);
+            writer.close();
+
+            JsonReader reader = new JsonReader("./data/testWriterEmptyCompetitions.json");
+            comp = reader.readCompetitions();
+            assertEquals(0, comp.size());
+        } catch (IOException e) {
+            fail("Exception should not have been thrown");
+        }
+    }
 }
