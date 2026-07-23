@@ -91,6 +91,18 @@ public class JsonReader {
     // MODIFIES: comps
     // EFFECTS: parses hyroxs from JSON object and adds them to competitions
     private void addInstant(InstantsHistory ins, JSONObject jsonObject) {
-        
+        String title = jsonObject.getString("title");
+        int timeSkiErg = jsonObject.getInt("timeSkiErg");
+        int timeSledPush = jsonObject.getInt("timeSledPull");
+        int timeSledPull = jsonObject.getInt("timeSledPull");
+        int timeBBJ = jsonObject.getInt("timeBBJ");
+        int timeRowing = jsonObject.getInt("timeRowing");
+        int timeFC = jsonObject.getInt("timeFC");
+        int timeSL = jsonObject.getInt("timeSL");
+        int timeWallBall = jsonObject.getInt("timeWallBall");
+        int sumTimeRuns = jsonObject.getInt("sumTimeRuns");
+        InstantHyrox inst = new InstantHyrox(title, timeSkiErg, timeSledPush, timeSledPull, timeBBJ, timeRowing,
+                timeFC, timeSL, timeWallBall, sumTimeRuns);
+        ins.addInstant(inst);
     }
 }
