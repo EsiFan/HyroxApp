@@ -20,4 +20,10 @@ public class JsonReader {
     public JsonReader(String source) {
         this.source = source;
     }
+
+    // EFFECTS: reads Competitions from file and returns it;
+    // throws IOException if an error occurs reading data from file
+    public Competitions read() throws IOException {
+        return null;
+    }
 }
