@@ -1,14 +1,26 @@
-{"listOfHyrox": [
+{"listOfInstants": [
     {
-        "weightClass": 150,
-        "gender": "mixed",
-        "title": "Open",
-        "minTimeRec": 120
+        "timeSkiErg": 1,
+        "timeBBJ": 4,
+        "timeFC": 6,
+        "timeWallBall": 8,
+        "sumTimeRuns": 18,
+        "timeRowing": 5,
+        "timeSL": 7,
+        "timeSledPush": 2,
+        "title": "July",
+        "timeSledPull": 3
     },
     {
-        "weightClass": 180,
-        "gender": "male",
-        "title": "US",
-        "minTimeRec": 90
+        "timeSkiErg": 1,
+        "timeBBJ": 4,
+        "timeFC": 3,
+        "timeWallBall": 6,
+        "sumTimeRuns": 15,
+        "timeRowing": 5,
+        "timeSL": 7,
+        "timeSledPush": 2,
+        "title": "June",
+        "timeSledPull": 2
     }
 ]}

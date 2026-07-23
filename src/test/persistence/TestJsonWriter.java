@@ -43,7 +43,7 @@ public class TestJsonWriter extends TestJson {
     }
 
     @Test
-    void testWriterGeneralWorkroom() {
+    void testWriterGeneralCompetitions() {
         try {
             Competitions comp = new Competitions();
             comp.addComp(new Hyrox("Open", 150, "mixed", 120));
@@ -69,14 +69,37 @@ public class TestJsonWriter extends TestJson {
     void testWriterEmptyInstantsHistory() {
         try {
             InstantsHistory ins = new InstantsHistory();
-            JsonWriter writer = new JsonWriter("./data/testWriterEmptyCompetitions.json");
+            JsonWriter writer = new JsonWriter("./data/testWriterEmptyInstantsHistory.json");
             writer.open();
             writer.write(ins);
             writer.close();
 
-            JsonReader reader = new JsonReader("./data/testWriterEmptyCompetitions.json");
+            JsonReader reader = new JsonReader("./data/testWriterEmptyInstantsHistory.json");
             ins = reader.readInstantsHistory();
             assertEquals(0, ins.size());
+        } catch (IOException e) {
+            fail("Exception should not have been thrown");
+        }
+    }
+
+    @Test
+    void testWriterGeneralInstantsHistory() {
+        try {
+            InstantsHistory ins = new InstantsHistory();
+            ins.addInstant(new InstantHyrox("July", 1, 2, 3, 4, 5, 6, 7, 8, 18));
+            ins.addInstant(new InstantHyrox("June", 1, 2, 2, 4, 5, 3, 7, 6, 15));
+            JsonWriter writer = new JsonWriter("./data/testWriterGeneral.json");
+            writer.open();
+            writer.write(ins);
+            writer.close();
+
+            JsonReader reader = new JsonReader("./data/testWriterGeneral.json");
+            ins = reader.readInstantsHistory();
+            List<InstantHyrox> insts = ins.getInstantsHistory();
+            assertEquals(2, insts.size());
+            checkInstant("July", 1, 2, 3, 4, 5, 6, 7, 8, 18, insts.get(0));
+            checkInstant("June", 1, 2, 2, 4, 5, 3, 7, 6, 15, insts.get(1));
+
         } catch (IOException e) {
             fail("Exception should not have been thrown");
         }
