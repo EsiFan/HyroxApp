@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
 // modeled from example project JsonSerialization
 
 @ExcludeFromJacocoGeneratedReport
-public class TestReader extends TestJson{
+public class TestReader extends TestJson {
 
     @Test
     void testReaderNonExistentFileCompetitions() {
@@ -81,7 +81,7 @@ public class TestReader extends TestJson{
             assertEquals(2, ins.size());
             List<InstantHyrox> inst = ins.getInstantsHistory();
             checkInstant("July", 1, 2, 3, 4, 5, 6, 7, 8, 18, inst.get(0));
-            checkInstant("US Hyrox", 1, 2, 2, 4, 3, 2, 6, 7, 15, inst.get(1));
+            checkInstant("August", 1, 2, 2, 4, 3, 2, 6, 7, 15, inst.get(1));
         } catch (IOException e) {
             fail("Couldn't read from file");
         }

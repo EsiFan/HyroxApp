@@ -93,7 +93,7 @@ public class JsonReader {
     private void addInstant(InstantsHistory ins, JSONObject jsonObject) {
         String title = jsonObject.getString("title");
         int timeSkiErg = jsonObject.getInt("timeSkiErg");
-        int timeSledPush = jsonObject.getInt("timeSledPull");
+        int timeSledPush = jsonObject.getInt("timeSledPush");
         int timeSledPull = jsonObject.getInt("timeSledPull");
         int timeBBJ = jsonObject.getInt("timeBBJ");
         int timeRowing = jsonObject.getInt("timeRowing");
