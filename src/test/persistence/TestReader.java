@@ -39,7 +39,7 @@ public class TestReader extends TestJson {
 
     @Test
     void testReaderGeneralCompetitions() {
-        JsonReader reader = new JsonReader("./data/testReaderGeneralCompetitions.json");
+        JsonReader reader = new JsonReader("./data/testReaderGeneral.json");
         try {
             Competitions comps = reader.readCompetitions();
             assertEquals(2, comps.size());
@@ -75,7 +75,7 @@ public class TestReader extends TestJson {
 
     @Test
     void testReaderGeneralInstantsHistory() {
-        JsonReader reader = new JsonReader("./data/testReaderGeneralInstantsHistory.json");
+        JsonReader reader = new JsonReader("./data/testReaderGeneral.json");
         try {
             InstantsHistory ins = reader.readInstantsHistory();
             assertEquals(2, ins.size());
