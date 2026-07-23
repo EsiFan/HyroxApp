@@ -31,16 +31,15 @@ public class TestCompetition {
     @Test
     void testaddComp() {
         testCompetitions.addComp(compTest1);
-        assertEquals(testCompetitions.getCompetitions().size(), 1);
+        assertEquals(testCompetitions.size(), 1);
     }
 
     @Test
     void testaddCompMultiplTimes() {
         testCompetitions.addComp(compTest1);
-        assertEquals(testCompetitions.getCompetitions().size(), 1);
+        assertEquals(testCompetitions.size(), 1);
 
         testCompetitions.addComp(compTest2);
-        assertEquals(testCompetitions.getCompetitions().size(), 2);
-    }
-    
+        assertEquals(testCompetitions.size(), 2);
+    } 
 }

@@ -23,6 +23,6 @@ public class Competitions {
 
     // EFFECTS: returns the size of the competition
     public int size() {
-        return 0;
+        return listofHyrox.size();
     }
 }
