@@ -1,0 +1,14 @@
+{"listOfHyrox": [
+    {
+        "weightClass": 150,
+        "gender": "mixed",
+        "title": "Open",
+        "minTimeRec": 120
+    },
+    {
+        "weightClass": 180,
+        "gender": "male",
+        "title": "US",
+        "minTimeRec": 90
+    }
+]}

@@ -46,7 +46,7 @@ public class JsonReader {
     // EFFECTS: parses listofHyrox from JSON object and adds them to competitions
     // returns Competitions
     private Competitions parseCompetitions(JSONObject jsonObject) {
-        JSONArray listofHyrox = jsonObject.getJSONArray("listofHyrox");
+        JSONArray listofHyrox = jsonObject.getJSONArray("listOfHyrox");
         Competitions comps = new Competitions();
         for (Object json : listofHyrox) {
             JSONObject nextHyrox = (JSONObject) json;

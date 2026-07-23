@@ -41,4 +41,27 @@ public class TestJsonWriter extends TestJson {
             fail("Exception should not have been thrown");
         }
     }
+
+    @Test
+    void testWriterGeneralWorkroom() {
+        try {
+            Competitions comp = new Competitions();
+            comp.addComp(new Hyrox("Open", 150, "mixed", 120));
+            comp.addComp(new Hyrox("US", 180, "male", 90));
+            JsonWriter writer = new JsonWriter("./data/testWriterGeneral.json");
+            writer.open();
+            writer.write(comp);
+            writer.close();
+
+            JsonReader reader = new JsonReader("./data/testWriterGeneral.json");
+            comp = reader.readCompetitions();
+            List<Hyrox> hyroxs = comp.getCompetitions();
+            assertEquals(2, hyroxs.size());
+            checkCompetition("Open", 150, "mixed", 120, hyroxs.get(0));
+            checkCompetition("US", 180, "male", 90, hyroxs.get(1));
+
+        } catch (IOException e) {
+            fail("Exception should not have been thrown");
+        }
+    }
 }

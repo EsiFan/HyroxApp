@@ -3,9 +3,12 @@ package model;
 import java.util.Collection;
 
 import org.json.JSONObject;
+import org.json.JSONArray;
+
+import persistence.Writable;
 
 // a practice hyrox run
-public class InstantHyrox {
+public class InstantHyrox implements Writable {
     private String title;
     private int timeSkiErg; // all of the times are recorded in minutes
     private int timeSledPush;
@@ -83,7 +86,20 @@ public class InstantHyrox {
         return this.sumTimeRuns;
     }
 
+    @Override
     public JSONObject toJson() {
-        return null;
+        JSONObject json = new JSONObject();
+        json.put("title", title);
+        json.put("timeSkiErg", timeSkiErg);
+        json.put("timeSledPush", timeSledPush);
+        json.put("timeSledPull", timeSledPull);
+        json.put("timeBBJ", timeBBJ);
+        json.put("timeRowing", timeRowing);
+        json.put("timeFC", timeFC);
+        json.put("timeSL", timeSL);
+        json.put("timeWallBall", timeWallBall);
+        json.put("sumTimeRuns", sumTimeRuns);
+
+        return json;
     }
 }
