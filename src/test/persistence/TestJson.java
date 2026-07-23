@@ -6,7 +6,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import ca.ubc.cs.ExcludeFromJacocoGeneratedReport;
 
-
 // modeled from example project JsonSerialization
 
 @ExcludeFromJacocoGeneratedReport
@@ -18,8 +17,8 @@ public class TestJson {
         assertEquals(minTimeRec, hyrox.getMinTimeRec());
     }
 
-    protected void checkInstant(String title, int timeSkiErg, int timeSledPush, int timeSledPull, int timeBBJ, 
-    int timeRowing, int timeFC, int timeSL, int timeWallBall, int sumTimeRuns, InstantHyrox ins) {
+    protected void checkInstant(String title, int timeSkiErg, int timeSledPush, int timeSledPull, int timeBBJ,
+            int timeRowing, int timeFC, int timeSL, int timeWallBall, int sumTimeRuns, InstantHyrox ins) {
         assertEquals(title, ins.getTitle());
         assertEquals(timeSkiErg, ins.getTimeSkiErg());
         assertEquals(timeSledPush, ins.getTimeSledPush());
@@ -32,4 +31,3 @@ public class TestJson {
         assertEquals(sumTimeRuns, ins.getSumTimeRuns());
     }
 }
-

@@ -20,7 +20,7 @@ public class HyroxApp {
     private Competitions competitions;
     private InstantsHistory instantsHistory;
     private Wishlist wishlist;
-     private JsonReader jsonReader;
+    private JsonReader jsonReader;
     private ArrayList<String> wl;
 
     // EFFECTS: tuns the hyrox application
@@ -137,6 +137,11 @@ public class HyroxApp {
         instantsHistory.addInstant(instance);
     }
 
+    // EEFECTS: records time from user entry and returns it
+    private int recordTime(String forExercise) {
+        return 0;
+    }
+
     // EFFECTS: updates thee wishliist with the hyroxes
     // that user is eligible for
     // MODIFIES: this
@@ -215,7 +220,7 @@ public class HyroxApp {
 
     // EFFECTS: checks if the given hyroxTitle is a duplicate in wishlist or not
     private boolean notDuplicate(String hyroxTitle) {
-        for(String h : wishlist.getWishlist()) {
+        for (String h : wishlist.getWishlist()) {
             if (h.equals(hyroxTitle)) {
                 return false;
             }
