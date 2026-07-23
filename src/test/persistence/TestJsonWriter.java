@@ -1,6 +1,8 @@
 package persistence;
 
 import model.*;
+
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import ca.ubc.cs.ExcludeFromJacocoGeneratedReport;
@@ -15,6 +17,11 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @ExcludeFromJacocoGeneratedReport
 public class TestJsonWriter extends TestJson {
+    Competitions comp = new Competitions();
+    InstantsHistory ins = new InstantsHistory();
+    Wishlist wl = new Wishlist();
+    ArrayList<String> hyroxTitles = new ArrayList<>();
+
     @Test
     void testWriterInvalidFile() {
         try {
@@ -29,10 +36,14 @@ public class TestJsonWriter extends TestJson {
     @Test
     void testWriterEmptyCompetitions() {
         try {
-            Competitions comp = new Competitions();
+            ins.addInstant(new InstantHyrox("July", 1, 2, 3, 4, 5, 6, 7, 8, 18));
+            ins.addInstant(new InstantHyrox("June", 1, 2, 2, 4, 5, 3, 7, 6, 15));
+            hyroxTitles.add("Open");
+            hyroxTitles.add("US");
+            wl.addHyroxs(hyroxTitles);
             JsonWriter writer = new JsonWriter("./data/testWriterEmptyCompetitions.json");
             writer.open();
-            writer.write(comp);
+            writer.write(comp, ins, wl);
             writer.close();
 
             JsonReader reader = new JsonReader("./data/testWriterEmptyCompetitions.json");
