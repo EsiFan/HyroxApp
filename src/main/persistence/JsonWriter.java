@@ -1,4 +1,5 @@
 package persistence;
+
 import model.*;
 import org.json.JSONObject;
 
@@ -20,7 +21,8 @@ public class JsonWriter {
     }
 
     // MODIFIES: this
-    // EFFECTS: opens writer; throws FileNotFoundException if destination file cannot
+    // EFFECTS: opens writer; throws FileNotFoundException if destination file
+    // cannot
     // be opened for writing
     public void open() throws FileNotFoundException {
         writer = new PrintWriter(new File(destination));
@@ -29,26 +31,25 @@ public class JsonWriter {
     // MODIFIES: this
     // EFFECTS: writes JSON representation of Competitions to file
     public void write(Competitions comp, InstantsHistory ins, Wishlist wl) {
-        JSONObject json = comp.toJson();
-        saveToFile(json.toString(TAB));
-        json = ins.toJson();
-        saveToFile(json.toString(TAB));
-        json = wl.toJson();
+        JSONObject json = new JSONObject();
+        json.put("competitions", comp.toJson());
+        json.put("instantsHistory", ins.toJson());
+        json.put("wishlist", wl.toJson());
         saveToFile(json.toString(TAB));
     }
 
     // // MODIFIES: this
     // // EFFECTS: writes JSON representation of InstantsHistory to file
     // public void write(InstantsHistory ins) {
-    //     JSONObject json = ins.toJson();
-    //     saveToFile(json.toString(TAB));
+    // JSONObject json = ins.toJson();
+    // saveToFile(json.toString(TAB));
     // }
 
     // // MODIFIES: this
     // // EFFECTS: writes JSON representation of Wishlist to file
     // public void write(Wishlist wl) {
-    //     JSONObject json = wl.toJson();
-    //     saveToFile(json.toString(TAB));
+    // JSONObject json = wl.toJson();
+    // saveToFile(json.toString(TAB));
     // }
 
     // MODIFIES: this
