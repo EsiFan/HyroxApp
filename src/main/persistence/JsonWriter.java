@@ -1,10 +1,10 @@
 package persistence;
-
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
+import model.*;
+import org.json.JSONObject;
 
 import ca.ubc.cs.ExcludeFromJacocoGeneratedReport;
+
+import java.io.*;
 
 // modeled from example project JsonSerialization
 
@@ -24,6 +24,25 @@ public class JsonWriter {
     // be opened for writing
     public void open() throws FileNotFoundException {
         writer = new PrintWriter(new File(destination));
+    }
+
+    // MODIFIES: this
+    // EFFECTS: writes JSON representation of workroom to file
+    public void write(Competitions comp) {
+        JSONObject json = comp.toJson();
+        saveToFile(json.toString(TAB));
+    }
+
+    // MODIFIES: this
+    // EFFECTS: closes writer
+    public void close() {
+        writer.close();
+    }
+
+    // MODIFIES: this
+    // EFFECTS: writes string to file
+    private void saveToFile(String json) {
+        writer.print(json);
     }
 
 }
