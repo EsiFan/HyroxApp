@@ -124,6 +124,7 @@ public class JsonReader {
             // JSONString nextWishTitle = (JSONString) json;
             listOfHyroxTitle.add((String) json);
         }
+        wl.addHyroxs(listOfHyroxTitle);
         return wl;
     }
 
