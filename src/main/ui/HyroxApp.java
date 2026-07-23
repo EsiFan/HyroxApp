@@ -114,24 +114,15 @@ public class HyroxApp {
         input.nextLine();
         System.out.println("Enter The Instant Title: ");
         String title = input.nextLine();
-        System.out.println("Enter Time For Ski Erg (in mins): ");
-        int timeSkiErg = input.nextInt();
-        System.out.println("Enter Time For Sled Push (in mins): ");
-        int timeSPush = input.nextInt();
-        System.out.println("Enter Time For Sled Pull (in mins): ");
-        int timeSPull = input.nextInt();
-        System.out.println("Enter Time For Burpee Board Jump (in mins): ");
-        int timeBBJ = input.nextInt();
-        System.out.println("Enter Time For Rowing (in mins): ");
-        int timeRowing = input.nextInt();
-        System.out.println("Enter Time For Farmers Carry (in mins): ");
-        int timeFC = input.nextInt();
-        System.out.println("Enter Time For Sandbag Lunges (in mins): ");
-        int timeSL = input.nextInt();
-        System.out.println("Enter Time For WallBall (in mins): ");
-        int timeWallBall = input.nextInt();
-        System.out.println("Enter Sum Time for Running (in mins): ");
-        int sumTimeRuns = input.nextInt();
+        int timeSkiErg = recordTime("Ski Erg");
+        int timeSPush = recordTime("Sled Push");
+        int timeSPull = recordTime("Sled Pull");
+        int timeBBJ = recordTime("Burpee Board Jump");
+        int timeRowing = recordTime("Rowing");
+        int timeFC = recordTime("Farmers Carry");
+        int timeSL = recordTime("Sandbag Lunges");
+        int timeWallBall = recordTime("WallBall");
+        int sumTimeRuns = recordTime("Running");
         InstantHyrox instance = new InstantHyrox(title, timeSkiErg, timeSPush, timeSPull, timeBBJ, timeRowing, timeFC,
                 timeSL, timeWallBall, sumTimeRuns);
         instantsHistory.addInstant(instance);
@@ -139,7 +130,8 @@ public class HyroxApp {
 
     // EEFECTS: records time from user entry and returns it
     private int recordTime(String forExercise) {
-        return 0;
+        System.out.println("Enter Time For " + forExercise + " (in mins): ");
+        return input.nextInt();
     }
 
     // EFFECTS: updates thee wishliist with the hyroxes
