@@ -9,7 +9,7 @@ import org.json.JSONArray;
 import persistence.Writable;
 
 // wishlist of the possible future hyroxs the user wants to participate
-public class Wishlist implements Writable{
+public class Wishlist implements Writable {
     private ArrayList<String> wishList;
 
     // EFFECTS: constructs an empty list of Hyroxes

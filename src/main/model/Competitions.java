@@ -8,7 +8,7 @@ import org.json.JSONArray;
 import persistence.Writable;
 
 // list of hyrox competitions
-public class Competitions implements Writable{
+public class Competitions implements Writable {
     private ArrayList<Hyrox> listofHyrox;
 
     //EFFECTS: constructs an empty list of Hyroxes

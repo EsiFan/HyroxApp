@@ -8,7 +8,7 @@ import org.json.JSONArray;
 import persistence.Writable;
 
 // list of user's previous hyrox attepmts
-public class InstantsHistory implements Writable{
+public class InstantsHistory implements Writable {
     private ArrayList<InstantHyrox> listOfInstants;
 
     // EFFECTS: constructs an empty list of Instants

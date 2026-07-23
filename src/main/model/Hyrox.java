@@ -6,7 +6,7 @@ import org.json.JSONObject;
 import persistence.Writable;
 
 // setup and the requirments of a hyrox competition
-public class Hyrox implements Writable{
+public class Hyrox implements Writable {
     private String title;
     private int weightClass;
     private String gender;
