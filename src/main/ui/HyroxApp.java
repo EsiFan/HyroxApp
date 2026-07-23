@@ -201,13 +201,11 @@ public class HyroxApp {
     private void saveHyroxAppData() {
         try {
             jsonWriter.open();
-            jsonWriter.write(competitions);
-            System.out.println("Saved Competitions to " + JSON_STORE);
-            jsonWriter.write(instantsHistory);
-            System.out.println("Saved Instants History to " + JSON_STORE);
-            jsonWriter.write(wishlist);
-            System.out.println("Saved Wishlist to " + JSON_STORE);
+            jsonWriter.write(competitions, instantsHistory, wishlist);
             jsonWriter.close();
+            System.out.println("Saved Competitions to " + JSON_STORE);
+            System.out.println("Saved Instants History to " + JSON_STORE);
+            System.out.println("Saved Wishlist to " + JSON_STORE);
         } catch (FileNotFoundException e) {
             System.out.println("Unable to write to file: " + JSON_STORE);
         }
