@@ -6,7 +6,9 @@ import model.InstantHyrox;
 import model.InstantsHistory;
 import model.Wishlist;
 import persistence.JsonReader;
+import persistence.JsonWriter;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.*;
 
@@ -21,6 +23,7 @@ public class HyroxApp {
     private InstantsHistory instantsHistory;
     private Wishlist wishlist;
     private JsonReader jsonReader;
+    private JsonWriter jsonWriter;
     private ArrayList<String> wl;
 
     // EFFECTS: tuns the hyrox application
@@ -58,6 +61,7 @@ public class HyroxApp {
         instantsHistory = new InstantsHistory();
         wishlist = new Wishlist();
         jsonReader = new JsonReader(JSON_STORE);
+        jsonWriter = new JsonWriter(JSON_STORE);
         wl = new ArrayList<String>();
     }
 
@@ -85,7 +89,7 @@ public class HyroxApp {
         } else if (command.equals("w")) {
             doViewWishlist();
         } else if (command.equals("s")) {
-            // stub: save
+            saveHyroxAppData();
         } else if (command.equals("l")) {
             loadSavedHyroxAppData();
         } else {
@@ -189,6 +193,23 @@ public class HyroxApp {
             System.out.println("Loaded saved wishlist competitions from " + JSON_STORE);
         } catch (IOException e) {
             System.out.println("Unable to read from file: " + JSON_STORE);
+        }
+    }
+
+    // modeled from example project JsonSerialization
+    // EFFECTS: saves the Competitions, InstantsHistory, and Wishlist to file
+    private void saveHyroxAppData() {
+        try {
+            jsonWriter.open();
+            jsonWriter.write(competitions);
+            System.out.println("Saved Competitions to " + JSON_STORE);
+            jsonWriter.write(instantsHistory);
+            System.out.println("Saved Instants History to " + JSON_STORE);
+            jsonWriter.write(wishlist);
+            System.out.println("Saved Wishlist to " + JSON_STORE);
+            jsonWriter.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to write to file: " + JSON_STORE);
         }
     }
 
