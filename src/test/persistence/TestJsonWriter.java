@@ -57,12 +57,11 @@ public class TestJsonWriter extends TestJson {
     @Test
     void testWriterGeneralCompetitions() {
         try {
-            Competitions comp = new Competitions();
             comp.addComp(new Hyrox("Open", 150, "mixed", 120));
             comp.addComp(new Hyrox("US", 180, "male", 90));
             JsonWriter writer = new JsonWriter("./data/testWriterGeneral.json");
             writer.open();
-            writer.write(comp);
+            writer.write(comp, ins, wl);
             writer.close();
 
             JsonReader reader = new JsonReader("./data/testWriterGeneral.json");
@@ -80,10 +79,13 @@ public class TestJsonWriter extends TestJson {
     @Test
     void testWriterEmptyInstantsHistory() {
         try {
-            InstantsHistory ins = new InstantsHistory();
+            comp.addComp(new Hyrox("Open", 150, "mixed", 120));
+            comp.addComp(new Hyrox("US", 180, "male", 90));
+            hyroxTitles.add("Open");
+            hyroxTitles.add("US");
             JsonWriter writer = new JsonWriter("./data/testWriterEmptyInstantsHistory.json");
             writer.open();
-            writer.write(ins);
+            writer.write(comp, ins, wl);
             writer.close();
 
             JsonReader reader = new JsonReader("./data/testWriterEmptyInstantsHistory.json");

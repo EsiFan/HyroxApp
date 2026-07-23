@@ -1,10 +1,6 @@
 {
-    "wishlist": {"wishList": [
-        "Open",
-        "US"
-    ]},
-    "competitions": {"listOfHyrox": []},
-    "instantsHistory": {"listOfInstants": [
+    "Competitions": {"listOfHyrox": []},
+    "InstantsHistory": {"listOfInstants": [
         {
             "timeSkiErg": 1,
             "timeBBJ": 4,
@@ -29,5 +25,9 @@
             "title": "June",
             "timeSledPull": 2
         }
+    ]},
+    "Wishlist": {"wishList": [
+        "Open",
+        "US"
     ]}
 }
