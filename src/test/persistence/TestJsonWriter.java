@@ -104,4 +104,21 @@ public class TestJsonWriter extends TestJson {
             fail("Exception should not have been thrown");
         }
     }
+
+    @Test
+    void testWriterEmptyWishlist() {
+        try {
+            Wishlist wl = new Wishlist();
+            JsonWriter writer = new JsonWriter("./data/testWriterEmptyInstantsHistory.json");
+            writer.open();
+            writer.write(wl);
+            writer.close();
+
+            JsonReader reader = new JsonReader("./data/testWriterEmptyInstantsHistory.json");
+            wl = reader.readWishlist();
+            assertEquals(0, wl.size());
+        } catch (IOException e) {
+            fail("Exception should not have been thrown");
+        }
+    }
 }
