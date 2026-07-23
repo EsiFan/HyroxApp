@@ -1,7 +1,12 @@
 package model;
 
+import java.util.Collection;
+
+import org.json.JSONObject;
+import persistence.Writable;
+
 // setup and the requirments of a hyrox competition
-public class Hyrox {
+public class Hyrox implements Writable{
     private String title;
     private int weightClass;
     private String gender;
@@ -36,6 +41,16 @@ public class Hyrox {
 
     public int getMinTimeRec() {
         return this.minTimeRec;
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("title", title);
+        json.put("weightClass", weightClass);
+        json.put("gender", gender);
+        json.put("minTimeRec", minTimeRec);
+        return json;
     }
 
 }
