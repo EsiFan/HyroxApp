@@ -38,7 +38,7 @@ public class Wishlist implements Writable{
     @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
-        json.put("listOfInstants", wishListToJson());
+        json.put("wishList", wishListToJson());
         return json;
     }
 
@@ -48,7 +48,7 @@ public class Wishlist implements Writable{
         JSONArray jsonArray = new JSONArray();
 
         for (String i : wishList) {
-            jsonArray.put(toJson(i));
+            jsonArray.put(i);
         }
 
         return jsonArray;
