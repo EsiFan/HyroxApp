@@ -1,8 +1,10 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 import org.json.JSONObject;
+import org.json.JSONArray;
 
 import persistence.Writable;
 
@@ -38,5 +40,17 @@ public class Wishlist implements Writable{
         JSONObject json = new JSONObject();
         json.put("listOfInstants", wishListToJson());
         return json;
+    }
+
+    // modeled from example project JsonSerialization
+    // EFFECTS: returns HyroxTitles in this Wishlist as a JSON array
+    private JSONArray wishListToJson() {
+        JSONArray jsonArray = new JSONArray();
+
+        for (String i : wishList) {
+            jsonArray.put(toJson(i));
+        }
+
+        return jsonArray;
     }
 }
