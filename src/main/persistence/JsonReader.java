@@ -42,14 +42,6 @@ public class JsonReader {
         return parseCompetitions(jsonObject);
     }
 
-    // EFFECTS: reads InstantsHistory from file and returns it;
-    // throws IOException if an error occurs reading data from file
-    public InstantsHistory readInstantsHistory() throws IOException {
-        String jsonData = readFile(source);
-        JSONObject jsonObject = new JSONObject(jsonData);
-        return parseInstantsHistory(jsonObject);
-    }
-
     // MODIFIES: comps
     // EFFECTS: parses listofHyrox from JSON object and adds them to competitions
     // returns Competitions
@@ -72,5 +64,26 @@ public class JsonReader {
         int minTimeRec = jsonObject.getInt("minTimeRec");
         Hyrox hyrox = new Hyrox(title, weightClass, gender, minTimeRec);
         comps.addComp(hyrox);
+    }
+
+    // EFFECTS: reads InstantsHistory from file and returns it;
+    // throws IOException if an error occurs reading data from file
+    public InstantsHistory readInstantsHistory() throws IOException {
+        String jsonData = readFile(source);
+        JSONObject jsonObject = new JSONObject(jsonData);
+        return parseInstantsHistory(jsonObject);
+    }
+
+    // MODIFIES: ins
+    // EFFECTS: parses listofInstants from JSON object and adds them to InstantsHistory
+    // returns Competitions
+    private InstantsHistory parseInstantsHistory(JSONObject jsonObject) {
+        JSONArray listofHyrox = jsonObject.getJSONArray("listOfInstants");
+        InstantsHistory ins = new InstantsHistory();
+        for (Object json : listofHyrox) {
+            JSONObject nextInstant = (JSONObject) json;
+            addInstant(ins, nextInstant);
+        }
+        return ins;
     }
 }
