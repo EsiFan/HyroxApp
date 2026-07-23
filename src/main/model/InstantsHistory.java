@@ -35,7 +35,9 @@ public class InstantsHistory implements Writable{
     // modeled from example project JsonSerialization
     @Override
     public JSONObject toJson() {
-        return null;
+        JSONObject json = new JSONObject();
+        json.put("listOfInstants", instantsToJson());
+        return json;
     }
 
     // modeled from example project JsonSerialization
