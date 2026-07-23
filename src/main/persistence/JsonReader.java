@@ -22,14 +22,6 @@ public class JsonReader {
         this.source = source;
     }
 
-    // EFFECTS: reads Competitions from file and returns it;
-    // throws IOException if an error occurs reading data from file
-    public Competitions readCompetitions() throws IOException {
-        String jsonData = readFile(source);
-        JSONObject jsonObject = new JSONObject(jsonData);
-        return parseCompetitions(jsonObject);
-    }
-
     // from example project JsonSerialization
     // EFFECTS: reads source file as string and returns it
     private String readFile(String source) throws IOException {
@@ -40,6 +32,22 @@ public class JsonReader {
         }
 
         return contentBuilder.toString();
+    }
+
+    // EFFECTS: reads Competitions from file and returns it;
+    // throws IOException if an error occurs reading data from file
+    public Competitions readCompetitions() throws IOException {
+        String jsonData = readFile(source);
+        JSONObject jsonObject = new JSONObject(jsonData);
+        return parseCompetitions(jsonObject);
+    }
+
+    // EFFECTS: reads InstantsHistory from file and returns it;
+    // throws IOException if an error occurs reading data from file
+    public InstantsHistory readInstantsHistory() throws IOException {
+        String jsonData = readFile(source);
+        JSONObject jsonObject = new JSONObject(jsonData);
+        return parseInstantsHistory(jsonObject);
     }
 
     // MODIFIES: comps
