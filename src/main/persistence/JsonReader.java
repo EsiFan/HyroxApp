@@ -44,13 +44,13 @@ public class JsonReader {
 
     // MODIFIES: comps
     // EFFECTS: parses listofHyrox from JSON object and adds them to competitions
-    //          returns Competitions
-    private Competitions parseCompetitions (JSONObject jsonObject) {
+    // returns Competitions
+    private Competitions parseCompetitions(JSONObject jsonObject) {
         JSONArray listofHyrox = jsonObject.getJSONArray("listofHyrox");
         Competitions comps = new Competitions();
         for (Object json : listofHyrox) {
             JSONObject nextHyrox = (JSONObject) json;
-            addHyrox(comps, nextHyrox);      
+            addHyrox(comps, nextHyrox);
         }
         return comps;
     }
@@ -58,5 +58,11 @@ public class JsonReader {
     // MODIFIES: comps
     // EFFECTS: parses hyroxs from JSON object and adds them to competitions
     private void addHyrox(Competitions comps, JSONObject jsonObject) {
+        String title = jsonObject.getString("title");
+        int weightClass = jsonObject.getInt("weightClass");
+        String gender = jsonObject.getString("gender");
+        int minTimeRec = jsonObject.getInt("minTimeRec");
+        Hyrox hyrox = new Hyrox(title, weightClass, gender, minTimeRec);
+        comps.addComp(hyrox);
     }
 }
