@@ -97,4 +97,18 @@ public class TestReader extends TestJson {
             fail("Couldn't read from file");
         }
     }
+
+    @Test
+    void testReaderGeneralWishlist() {
+        JsonReader reader = new JsonReader("./data/testReaderGeneral.json");
+        try {
+            Wishlist wl = reader.readWishlist();
+            assertEquals(2, wl.size());
+            List<String> wishes = wl.getWishlist();
+            assertEquals("Hyrox Open", wishes.get(0));
+            assertEquals("US Hyrox", wishes.get(1));
+        } catch (IOException e) {
+            fail("Couldn't read from file");
+        }
+    }
 }
