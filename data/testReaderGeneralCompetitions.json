@@ -1,18 +1,46 @@
 {
-   "listofHyrox" : [
-    {
-        "title" : "Hyrox Open",
-        "weightClass" : 150, 
-        "gender" : "mixed",
-        "minTimeRec" : 90
-    },
-    {
-        "title" : "US Hyrox",
-        "weightClass" : 180, 
-        "gender" : "male",
-        "minTimeRec" : 75
-    }
-   ],
-   "listOfInstants" : [], 
-   "wishList" : []
+    "listofHyrox": [
+        {
+            "title": "Hyrox Open",
+            "weightClass": 150,
+            "gender": "mixed",
+            "minTimeRec": 90
+        },
+        {
+            "title": "US Hyrox",
+            "weightClass": 180,
+            "gender": "male",
+            "minTimeRec": 75
+        }
+    ],
+    "listOfInstants": [
+        {
+            "title": "July",
+            "timeSkiErg": 1,
+            "timeSledPush": 2,
+            "timeSledPull": 3,
+            "timeBBJ": 4,
+            "timeRowing": 5,
+            "timeFC": 6,
+            "timeSL": 7,
+            "timeWallBall": 8,
+            "sumTimeRuns": 18
+        },
+        {
+            "title": "August",
+            "timeSkiErg": 1,
+            "timeSledPush": 2,
+            "timeSledPull": 2,
+            "timeBBJ": 4,
+            "timeRowing": 3,
+            "timeFC": 2,
+            "timeSL": 6,
+            "timeWallBall": 7,
+            "sumTimeRuns": 15
+        }
+    ],
+    "wishList": [
+        "July",
+        "June"
+    ]
 }
