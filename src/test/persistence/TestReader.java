@@ -50,4 +50,15 @@ public class TestReader extends TestJson{
             fail("Couldn't read from file");
         }
     }
+
+    @Test
+    void testReaderNonExistentFileInstantsHistory() {
+        JsonReader reader = new JsonReader("./data/noSuchFile.json");
+        try {
+            InstantsHistory ins = reader.readInstantsHistory();
+            fail("IOException expected");
+        } catch (IOException e) {
+            // pass
+        }
+    }
 }
