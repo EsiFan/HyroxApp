@@ -249,11 +249,12 @@ public class HyroxApp {
 
         while (carryOn) {
             System.out.println("\nOptions:");
-            System.out.println("\ts -> Save the Curent Data of the App");
-            System.out.println("\tn -> DO NOT Save the Curent Data of the App");
+            System.out.println("\ts -> Save the curent data of the app");
+            System.out.println("\tn -> DO NOT save the curent data of the app");
             key = input.next();
 
             if (key.equals("n")) {
+                System.out.println("\nDid not save data at this time...");
                 carryOn = false;
             } else {
                 if (key.equals("s")) {
@@ -264,7 +265,7 @@ public class HyroxApp {
                 }
             }
         }
-        System.out.println("\nDid notsave data at this time...");
+        System.out.println("\nGoing back to the main menu...");
 
     }
 
