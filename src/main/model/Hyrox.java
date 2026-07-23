@@ -43,6 +43,7 @@ public class Hyrox implements Writable{
         return this.minTimeRec;
     }
 
+    // modeled from example project JsonSerialization
     @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
