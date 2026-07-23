@@ -88,8 +88,8 @@ public class JsonReader {
         return ins;
     }
 
-    // MODIFIES: comps
-    // EFFECTS: parses hyroxs from JSON object and adds them to competitions
+    // MODIFIES: ins
+    // EFFECTS: parses instants from JSON object and adds them to InstantsHistory
     private void addInstant(InstantsHistory ins, JSONObject jsonObject) {
         String title = jsonObject.getString("title");
         int timeSkiErg = jsonObject.getInt("timeSkiErg");
@@ -113,4 +113,6 @@ public class JsonReader {
         JSONObject jsonObject = new JSONObject(jsonData);
         return parseWishlist(jsonObject);
     }
+
+    
 }
