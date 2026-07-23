@@ -5,7 +5,9 @@ import model.Hyrox;
 import model.InstantHyrox;
 import model.InstantsHistory;
 import model.Wishlist;
+import persistence.JsonReader;
 
+import java.io.IOException;
 import java.util.*;
 
 import ca.ubc.cs.ExcludeFromJacocoGeneratedReport;
@@ -13,10 +15,12 @@ import ca.ubc.cs.ExcludeFromJacocoGeneratedReport;
 // Hyrox application
 @ExcludeFromJacocoGeneratedReport
 public class HyroxApp {
+    private static final String JSON_STORE = "./data/testReaderGeneral.json";
     private Scanner input;
     private Competitions competitions;
     private InstantsHistory instantsHistory;
     private Wishlist wishlist;
+     private JsonReader jsonReader;
     private ArrayList<String> wl;
 
     // EFFECTS: tuns the hyrox application
@@ -82,7 +86,7 @@ public class HyroxApp {
         } else if (command.equals("s")) {
             // stub: save
         } else if (command.equals("l")) {
-            // stub: load
+            loadSavedHyroxApp();
         } else {
             System.out.println("Selection not valid...");
         }
@@ -171,6 +175,22 @@ public class HyroxApp {
             }
         } else {
             System.out.println("No competitions... ");
+        }
+    }
+
+    // modeled from example project JsonSerialization
+    // MODIFIES: this
+    // EFFECTS: loads Competitions, InstantsHistory, and Wishlist from file
+    private void loadSavedHyroxApp() {
+        try {
+            competitions = jsonReader.readCompetitions();
+            System.out.println("Loaded saved competitions from " + JSON_STORE);
+            instantsHistory = jsonReader.readInstantsHistory();
+            System.out.println("Loaded saved practice runs data from " + JSON_STORE);
+            wishlist = jsonReader.readWishlist();
+            System.out.println("Loaded saved wishlist competitions from " + JSON_STORE);
+        } catch (IOException e) {
+            System.out.println("Unable to read from file: " + JSON_STORE);
         }
     }
 
