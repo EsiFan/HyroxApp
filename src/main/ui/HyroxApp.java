@@ -17,7 +17,7 @@ import ca.ubc.cs.ExcludeFromJacocoGeneratedReport;
 // Hyrox application
 @ExcludeFromJacocoGeneratedReport
 public class HyroxApp {
-    private static final String JSON_STORE = "./data/testReaderGeneral.json";
+    private static final String JSON_STORE = "./data/hyroxApp.json";
     private Scanner input;
     private Competitions competitions;
     private InstantsHistory instantsHistory;
