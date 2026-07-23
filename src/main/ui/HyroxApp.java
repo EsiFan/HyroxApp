@@ -53,10 +53,11 @@ public class HyroxApp {
     // EFFECTS: Initializes the aspects of the app
     // MODIFIES: this
     private void init() {
+        input = new Scanner(System.in);
         competitions = new Competitions();
         instantsHistory = new InstantsHistory();
         wishlist = new Wishlist();
-        input = new Scanner(System.in);
+        jsonReader = new JsonReader(JSON_STORE);
         wl = new ArrayList<String>();
     }
 
