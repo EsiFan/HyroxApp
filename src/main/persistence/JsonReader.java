@@ -75,13 +75,12 @@ public class JsonReader {
     }
 
     // MODIFIES: ins
-    // EFFECTS: parses listofInstants from JSON object and adds them to
-    // InstantsHistory
-    // returns Competitions
+    // EFFECTS: parses listofInstants from JSON object and adds them to InstantsHistory
+    // returns InstatnsHistory
     private InstantsHistory parseInstantsHistory(JSONObject jsonObject) {
-        JSONArray listofHyrox = jsonObject.getJSONArray("listOfInstants");
+        JSONArray listofInstatns = jsonObject.getJSONArray("listOfInstants");
         InstantsHistory ins = new InstantsHistory();
-        for (Object json : listofHyrox) {
+        for (Object json : listofInstatns) {
             JSONObject nextInstant = (JSONObject) json;
             addInstant(ins, nextInstant);
         }
@@ -114,5 +113,19 @@ public class JsonReader {
         return parseWishlist(jsonObject);
     }
 
-    
+    // MODIFIES: wl
+    // EFFECTS: parses list of hyrox titles from JSON object and adds them to wishlist
+    // returns wishList
+    private Wishlist parseWishlist(JSONObject jsonObject) {
+        JSONArray wishList = jsonObject.getJSONArray("wishList");
+        Wishlist wl = new Wishlist();
+        ArrayList<String> listOfHyroxTitle = new ArrayList<>();
+        for (Object json : wishList) {
+            // JSONString nextWishTitle = (JSONString) json;
+            listOfHyroxTitle.add((String) json);
+        }
+        return wl;
+    }
+
+
 }
