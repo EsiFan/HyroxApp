@@ -159,12 +159,15 @@ public class HyroxApp {
             }
 
             wishlist.addHyroxs(wl);
+
+            askToSave();
         } else {
             System.out.println("No instantces... ");
         }
     }
 
-    // EFFECTS: prints out the wishlist of the titles comps the user is possibly going to
+    // EFFECTS: prints out the wishlist of the titles comps the user is possibly
+    // going to
     private void doViewWishlist() {
         int wlLength = wishlist.getWishlist().size();
         ArrayList<String> wl = wishlist.getWishlist();
@@ -237,6 +240,30 @@ public class HyroxApp {
             }
         }
         return true;
+    }
+
+    // EFFECTS: asks the user to save or not after updating wishlist
+    private void askToSave() {
+        boolean carryOn = true;
+        String key = null;
+
+        while (carryOn) {
+            System.out.println("\nOptions:");
+            System.out.println("\ts -> Save the Curent Data of the App");
+            System.out.println("\tn -> DO NOT Save the Curent Data of the App");
+            key = input.next();
+
+            if (key.equals("n")) {
+                carryOn = false;
+            } else {
+                if (key.equals("s")) {
+                    saveHyroxAppData();
+                } else {
+                    System.out.println("Selection not valid...");
+                }
+            }
+        }
+        System.out.println("\nDid notsave data at this time...");
     }
 
 }
