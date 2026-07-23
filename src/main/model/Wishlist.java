@@ -2,8 +2,12 @@ package model;
 
 import java.util.ArrayList;
 
+import org.json.JSONObject;
+
+import persistence.Writable;
+
 // wishlist of the possible future hyroxs the user wants to participate
-public class Wishlist {
+public class Wishlist implements Writable{
     private ArrayList<String> wishList;
 
     // EFFECTS: constructs an empty list of Hyroxes
@@ -26,5 +30,13 @@ public class Wishlist {
     // EFFECTS: returns the size of the competition
     public int size() {
         return wishList.size();
+    }
+
+    // modeled from example project JsonSerialization
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("listOfInstants", wishListToJson());
+        return json;
     }
 }
