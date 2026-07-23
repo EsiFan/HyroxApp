@@ -8,6 +8,7 @@ import ca.ubc.cs.ExcludeFromJacocoGeneratedReport;
 
 // modeled from example project JsonSerialization
 
+//specific tests for competitions and instants
 @ExcludeFromJacocoGeneratedReport
 public class TestJson {
     protected void checkCompetition(String title, int weightClass, String gender, int minTimeRec, Hyrox hyrox) {
