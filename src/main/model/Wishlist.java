@@ -22,4 +22,9 @@ public class Wishlist {
     public ArrayList<String> getWishlist() {
         return wishList;
     }
+
+    // EFFECTS: returns the size of the competition
+    public int size() {
+        return wishList.size();
+    }
 }
