@@ -1,5 +1,9 @@
 package model;
 
+import java.util.Collection;
+
+import org.json.JSONObject;
+
 // a practice hyrox run
 public class InstantHyrox {
     private String title;
@@ -77,5 +81,9 @@ public class InstantHyrox {
 
     public int getSumTimeRuns() {
         return this.sumTimeRuns;
+    }
+
+    public JSONObject toJson() {
+        return null;
     }
 }
