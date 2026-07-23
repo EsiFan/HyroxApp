@@ -86,7 +86,7 @@ public class HyroxApp {
         } else if (command.equals("s")) {
             // stub: save
         } else if (command.equals("l")) {
-            loadSavedHyroxApp();
+            loadSavedHyroxAppData();
         } else {
             System.out.println("Selection not valid...");
         }
@@ -181,7 +181,7 @@ public class HyroxApp {
     // modeled from example project JsonSerialization
     // MODIFIES: this
     // EFFECTS: loads Competitions, InstantsHistory, and Wishlist from file
-    private void loadSavedHyroxApp() {
+    private void loadSavedHyroxAppData() {
         try {
             competitions = jsonReader.readCompetitions();
             System.out.println("Loaded saved competitions from " + JSON_STORE);
