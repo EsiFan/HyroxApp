@@ -75,7 +75,8 @@ public class JsonReader {
     }
 
     // MODIFIES: ins
-    // EFFECTS: parses listofInstants from JSON object and adds them to InstantsHistory
+    // EFFECTS: parses listofInstants from JSON object and adds them to
+    // InstantsHistory
     // returns Competitions
     private InstantsHistory parseInstantsHistory(JSONObject jsonObject) {
         JSONArray listofHyrox = jsonObject.getJSONArray("listOfInstants");
@@ -85,5 +86,11 @@ public class JsonReader {
             addInstant(ins, nextInstant);
         }
         return ins;
+    }
+
+    // MODIFIES: comps
+    // EFFECTS: parses hyroxs from JSON object and adds them to competitions
+    private void addInstant(InstantsHistory ins, JSONObject jsonObject) {
+        
     }
 }
