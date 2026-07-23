@@ -32,9 +32,9 @@ public class JsonWriter {
     // EFFECTS: writes JSON representation of Competitions to file
     public void write(Competitions comp, InstantsHistory ins, Wishlist wl) {
         JSONObject json = new JSONObject();
-        json.put("competitions", comp.toJson());
-        json.put("instantsHistory", ins.toJson());
-        json.put("wishlist", wl.toJson());
+        json.put("Competitions", comp.toJson());
+        json.put("InstantsHistory", ins.toJson());
+        json.put("Wishlist", wl.toJson());
         saveToFile(json.toString(TAB));
     }
 
