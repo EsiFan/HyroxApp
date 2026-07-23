@@ -69,9 +69,9 @@ public class JsonReader {
     // EFFECTS: reads InstantsHistory from file and returns it;
     // throws IOException if an error occurs reading data from file
     public InstantsHistory readInstantsHistory() throws IOException {
-        String jsonData = readFile(source);
-        JSONObject jsonObject = new JSONObject(jsonData);
-        return parseInstantsHistory(jsonObject);
+        JSONObject jsonObject = new JSONObject(readFile(source));
+        JSONObject jsonIns = jsonObject.getJSONObject("InstantsHistory");
+        return parseInstantsHistory(jsonIns);
     }
 
     // MODIFIES: ins
