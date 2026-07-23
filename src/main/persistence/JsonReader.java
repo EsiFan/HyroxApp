@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.stream.Stream;
 
 import org.json.*;
@@ -43,10 +44,19 @@ public class JsonReader {
 
     // MODIFIES: comps
     // EFFECTS: parses listofHyrox from JSON object and adds them to competitions
+    //          returns Competitions
     private Competitions parseCompetitions (JSONObject jsonObject) {
-        String name = jsonObject.getString("listofHyrox");
+        JSONArray listofHyrox = jsonObject.getJSONArray("listofHyrox");
         Competitions comps = new Competitions();
-        addHyroxs(comps, jsonObject);
+        for (Object json : listofHyrox) {
+            JSONObject nextHyrox = (JSONObject) json;
+            addHyrox(comps, nextHyrox);      
+        }
         return comps;
+    }
+
+    // MODIFIES: comps
+    // EFFECTS: parses hyroxs from JSON object and adds them to competitions
+    private void addHyrox(Competitions comps, JSONObject jsonObject) {
     }
 }
