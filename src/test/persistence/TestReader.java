@@ -86,4 +86,15 @@ public class TestReader extends TestJson {
             fail("Couldn't read from file");
         }
     }
+
+    @Test
+    void testReaderEmptyWishlist() {
+        JsonReader reader = new JsonReader("./data/testReaderEmptyWishlist.json");
+        try {
+            Wishlist wl = reader.readWishlist();
+            assertEquals(0, wl.size());
+        } catch (IOException e) {
+            fail("Couldn't read from file");
+        }
+    }
 }
