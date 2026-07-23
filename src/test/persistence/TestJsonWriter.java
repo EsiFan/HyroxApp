@@ -141,14 +141,12 @@ public class TestJsonWriter extends TestJson {
     @Test
     void testWriterGeneralWishlist() {
         try {
-            Wishlist wl = new Wishlist();
-            ArrayList<String> hyroxTitles = new ArrayList<>();
             hyroxTitles.add("Open");
             hyroxTitles.add("US");
             wl.addHyroxs(hyroxTitles);
             JsonWriter writer = new JsonWriter("./data/testWriterGeneral.json");
             writer.open();
-            writer.write(wl);
+            writer.write(comp, ins, wl);
             writer.close();
 
             JsonReader reader = new JsonReader("./data/testWriterGeneral.json");
