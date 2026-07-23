@@ -1,21 +1,27 @@
 {
-    "listOfHyrox": [
-        {
-            "title": "Hyrox Open",
-            "weightClass": 150,
-            "gender": "mixed",
-            "minTimeRec": 90
-        },
-        {
-            "title": "US Hyrox",
-            "weightClass": 180,
-            "gender": "male",
-            "minTimeRec": 75
-        }
-    ],
-    "listOfInstants": [],
-    "wishList": [
-        "Hyrox Open",
-        "US Hyrox"
-    ]
+    "Competitions": {
+        "listOfHyrox": [
+            {
+                "title": "Hyrox Open",
+                "weightClass": 150,
+                "gender": "mixed",
+                "minTimeRec": 90
+            },
+            {
+                "title": "US Hyrox",
+                "weightClass": 180,
+                "gender": "male",
+                "minTimeRec": 75
+            }
+        ]
+    },
+    "InstantsHistory": {
+        "listOfInstants": []
+    },
+    "Wishlist": {
+        "wishList": [
+            "Hyrox Open",
+            "US Hyrox"
+        ]
+    }
 }
