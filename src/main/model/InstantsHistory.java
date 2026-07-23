@@ -20,4 +20,10 @@ public class InstantsHistory {
     public ArrayList<InstantHyrox> getInstantsHistory() {
         return listOfInstants;
     }
+
+
+    // EFFECTS: returns the size of the competition
+    public int size() {
+        return listOfInstants.size();
+    }
 }
