@@ -17,7 +17,7 @@ public class HyroxApp {
     private Competitions competitions;
     private InstantsHistory instantsHistory;
     private Wishlist wishlist;
-    private ArrayList<Hyrox> wl;
+    private ArrayList<String> wl;
 
     // EFFECTS: tuns the hyrox application
     public HyroxApp() {
@@ -53,7 +53,7 @@ public class HyroxApp {
         instantsHistory = new InstantsHistory();
         wishlist = new Wishlist();
         input = new Scanner(System.in);
-        wl = new ArrayList<Hyrox>();
+        wl = new ArrayList<String>();
     }
 
     // EFFECTS: shows menu options to the user
@@ -148,7 +148,7 @@ public class HyroxApp {
                 Hyrox cmp = competitions.getCompetitions().get(i);
                 int minRec = cmp.getMinTimeRec();
                 if (minRec >= record && notDuplicate(cmp.getTitle())) {
-                    wl.add(cmp);
+                    wl.add(cmp.getTitle());
                 }
             }
 

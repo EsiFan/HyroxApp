@@ -15,14 +15,14 @@ public class TestWishlist {
     private Wishlist testWishlist;
     private Hyrox hyroxTest1;
     private Hyrox hyroxTest2;
-    private ArrayList<Hyrox> hyroxsTests;
+    private ArrayList<String> hyroxsTests;
 
     @BeforeEach
     void runBefore() {
         testWishlist = new Wishlist();
         hyroxTest1 = new Hyrox("Grand Hyrox", 180, "mixed", 90);
         hyroxTest2 = new Hyrox("Hyrox Open", 150, "men", 70);
-        hyroxsTests = new ArrayList<Hyrox>();
+        hyroxsTests = new ArrayList<String>();
     }
 
     @Test
@@ -32,27 +32,27 @@ public class TestWishlist {
 
     @Test
     void testAddHyroxsSingleElementList() {
-        hyroxsTests.add(hyroxTest1);
+        hyroxsTests.add(hyroxTest1.getTitle());
         testWishlist.addHyroxs(hyroxsTests);
         assertEquals(testWishlist.getWishlist().size(), 1);
     }
 
     @Test
     void testAddHyroxsMultipleElementList() {
-        hyroxsTests.add(hyroxTest1);
-        hyroxsTests.add(hyroxTest2);
+        hyroxsTests.add(hyroxTest1.getTitle());
+        hyroxsTests.add(hyroxTest2.getTitle());
         testWishlist.addHyroxs(hyroxsTests);
         assertEquals(testWishlist.getWishlist().size(), 2);
     }
 
     @Test
     void testAddHyroxsMultipleLists() {
-        hyroxsTests.add(hyroxTest1);
+        hyroxsTests.add(hyroxTest1.getTitle());
         testWishlist.addHyroxs(hyroxsTests);
         assertEquals(testWishlist.getWishlist().size(), 1);
         hyroxsTests.clear();
-        hyroxsTests.add(hyroxTest1);
-        hyroxsTests.add(hyroxTest2);
+        hyroxsTests.add(hyroxTest1.getTitle());
+        hyroxsTests.add(hyroxTest2.getTitle());
         testWishlist.addHyroxs(hyroxsTests);
         assertEquals(testWishlist.getWishlist().size(), 3);
     }
