@@ -36,8 +36,7 @@ public class JsonWriter {
     // MODIFIES: this
     // EFFECTS: writes JSON representation of workroom to file
     public void write(InstantsHistory ins) {
-        JSONObject json = ins.toJson();
-        saveToFile(json.toString(TAB));
+        
     }
 
     // MODIFIES: this
