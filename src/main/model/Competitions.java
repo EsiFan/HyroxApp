@@ -20,4 +20,9 @@ public class Competitions {
     public ArrayList<Hyrox> getCompetitions() {
         return listofHyrox;
     }
+
+    // EFFECTS: returns the size of the competition
+    public int size() {
+        return 0;
+    }
 }
