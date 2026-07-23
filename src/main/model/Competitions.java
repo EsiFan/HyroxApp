@@ -40,7 +40,7 @@ public class Competitions implements Writable{
     }
 
     // modeled from example project JsonSerialization
-    // EFFECTS: returns things in this workroom as a JSON array
+    // EFFECTS: returns hyroxs in Competitions as a JSON array
     private JSONArray hyroxsToJson() {
         JSONArray jsonArray = new JSONArray();
 
