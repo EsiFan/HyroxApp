@@ -258,12 +258,14 @@ public class HyroxApp {
             } else {
                 if (key.equals("s")) {
                     saveHyroxAppData();
+                    break;
                 } else {
                     System.out.println("Selection not valid...");
                 }
             }
         }
         System.out.println("\nDid notsave data at this time...");
+
     }
 
 }
