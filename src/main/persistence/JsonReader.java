@@ -23,7 +23,7 @@ public class JsonReader {
 
     // EFFECTS: reads Competitions from file and returns it;
     // throws IOException if an error occurs reading data from file
-    public Competitions read() throws IOException {
+    public Competitions readCompetitions() throws IOException {
         return null;
     }
 }
