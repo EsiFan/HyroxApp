@@ -147,7 +147,7 @@ public class HyroxApp {
             for (int i = 0; i < lengthComp; i++) {
                 Hyrox cmp = competitions.getCompetitions().get(i);
                 int minRec = cmp.getMinTimeRec();
-                if (minRec >= record && notDuplicate(cmp)) {
+                if (minRec >= record && notDuplicate(cmp.getTitle())) {
                     wl.add(cmp);
                 }
             }
@@ -158,16 +158,16 @@ public class HyroxApp {
         }
     }
 
-    // EFFECTS: prints out the wishlist of the comps the user is possibly going to
+    // EFFECTS: prints out the wishlist of the titles comps the user is possibly going to
     private void doViewWishlist() {
         int wlLength = wishlist.getWishlist().size();
-        ArrayList<Hyrox> wl = wishlist.getWishlist();
+        ArrayList<String> wl = wishlist.getWishlist();
         if (!(wlLength == 0)) {
             System.out.println("The list of Hyroxs that you are eligible for: ");
 
             for (int i = 0; i < wlLength; i++) {
-                Hyrox h = wl.get(i);
-                System.out.println(h.getTitle());
+                String h = wl.get(i);
+                System.out.println(h);
             }
         } else {
             System.out.println("No competitions... ");
@@ -192,10 +192,10 @@ public class HyroxApp {
         }
     }
 
-    // EFFECTS: checks if the given hyrox is a duplicate in wishlist or not
-    private boolean notDuplicate(Hyrox hyrox) {
-        for(Hyrox h : wishlist.getWishlist()) {
-            if (h.equals(hyrox)) {
+    // EFFECTS: checks if the given hyroxTitle is a duplicate in wishlist or not
+    private boolean notDuplicate(String hyroxTitle) {
+        for(String h : wishlist.getWishlist()) {
+            if (h.equals(hyroxTitle)) {
                 return false;
             }
         }

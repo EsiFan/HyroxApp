@@ -1,0 +1,18 @@
+{
+   "listofHyrox" : [
+    {
+        "title" : "Hyrox Open",
+        "weightClass" : 150, 
+        "gender" : "mixed",
+        "minTimeRec" : 90
+    },
+    {
+        "title" : "US Hyrox",
+        "weightClass" : 180, 
+        "gender" : "male",
+        "minTimeRec" : 75
+    }
+   ],
+   "listOfInstants" : [], 
+   "wishList" : []
+}
