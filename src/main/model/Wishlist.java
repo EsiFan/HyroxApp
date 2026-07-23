@@ -13,9 +13,9 @@ public class Wishlist {
 
     // EFFECTS: adds the given hyrox to the listOfHyrox
     // MODIFIES: this
-    public void addHyroxs(ArrayList<Hyrox> hyroxs) {
-        for (Hyrox hyrox : hyroxs) {
-            wishList.add(hyrox.getTitle());
+    public void addHyroxs(ArrayList<String> hyroxTitles) {
+        for (String hyrox : hyroxTitles) {
+            wishList.add(hyrox);
         }
     }
 
