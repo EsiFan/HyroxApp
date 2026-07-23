@@ -99,12 +99,11 @@ public class TestJsonWriter extends TestJson {
     @Test
     void testWriterGeneralInstantsHistory() {
         try {
-            InstantsHistory ins = new InstantsHistory();
             ins.addInstant(new InstantHyrox("July", 1, 2, 3, 4, 5, 6, 7, 8, 18));
             ins.addInstant(new InstantHyrox("June", 1, 2, 2, 4, 5, 3, 7, 6, 15));
             JsonWriter writer = new JsonWriter("./data/testWriterGeneral.json");
             writer.open();
-            writer.write(ins);
+            writer.write(comp, ins, wl);
             writer.close();
 
             JsonReader reader = new JsonReader("./data/testWriterGeneral.json");
@@ -122,10 +121,13 @@ public class TestJsonWriter extends TestJson {
     @Test
     void testWriterEmptyWishlist() {
         try {
-            Wishlist wl = new Wishlist();
+            comp.addComp(new Hyrox("Open", 150, "mixed", 120));
+            comp.addComp(new Hyrox("US", 180, "male", 90));
+            ins.addInstant(new InstantHyrox("July", 1, 2, 3, 4, 5, 6, 7, 8, 18));
+            ins.addInstant(new InstantHyrox("June", 1, 2, 2, 4, 5, 3, 7, 6, 15));
             JsonWriter writer = new JsonWriter("./data/testWriterEmptyInstantsHistory.json");
             writer.open();
-            writer.write(wl);
+            writer.write(comp, ins, wl);
             writer.close();
 
             JsonReader reader = new JsonReader("./data/testWriterEmptyInstantsHistory.json");
