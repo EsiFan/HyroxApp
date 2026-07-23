@@ -88,6 +88,18 @@ public class InstantHyrox implements Writable {
 
     @Override
     public JSONObject toJson() {
-        return null;
+        JSONObject json = new JSONObject();
+        json.put("title", title);
+        json.put("timeSkiErg", timeSkiErg);
+        json.put("timeSledPush", timeSledPush);
+        json.put("timeSledPull", timeSledPull);
+        json.put("timeBBJ", timeBBJ);
+        json.put("timeRowing", timeRowing);
+        json.put("timeFC", timeFC);
+        json.put("timeSL", timeSL);
+        json.put("timeWallBall", timeWallBall);
+        json.put("sumTimeRuns", sumTimeRuns);
+
+        return json;
     }
 }
