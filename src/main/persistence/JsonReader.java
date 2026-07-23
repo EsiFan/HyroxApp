@@ -108,9 +108,9 @@ public class JsonReader {
     // EFFECTS: reads Wishlist from file and returns it;
     // throws IOException if an error occurs reading data from file
     public Wishlist readWishlist() throws IOException {
-        String jsonData = readFile(source);
-        JSONObject jsonObject = new JSONObject(jsonData);
-        return parseWishlist(jsonObject);
+        JSONObject jsonObject = new JSONObject(readFile(source));
+        JSONObject jsonWl = jsonObject.getJSONObject("Wishlist");
+        return parseWishlist(jsonWl);
     }
 
     // MODIFIES: wl
