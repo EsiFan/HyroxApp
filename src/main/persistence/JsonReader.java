@@ -40,4 +40,13 @@ public class JsonReader {
 
         return contentBuilder.toString();
     }
+
+    // MODIFIES: comps
+    // EFFECTS: parses listofHyrox from JSON object and adds them to competitions
+    private Competitions parseCompetitions (JSONObject jsonObject) {
+        String name = jsonObject.getString("listofHyrox");
+        Competitions comps = new Competitions();
+        addHyroxs(comps, jsonObject);
+        return comps;
+    }
 }
