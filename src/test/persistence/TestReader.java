@@ -24,4 +24,15 @@ public class TestReader {
             // pass
         }
     }
+
+    @Test
+    void testReaderEmptyCompetitions() {
+        JsonReader reader = new JsonReader("./data/testReaderEmptyCompetitions.json");
+        try {
+            Competitions comps = reader.readCompetitions();
+            assertEquals(0, comps.size());
+        } catch (IOException e) {
+            fail("Couldn't read from file");
+        }
+    }
 }
