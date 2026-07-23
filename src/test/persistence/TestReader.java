@@ -12,7 +12,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 // modeled from example project JsonSerialization
 
-public class TestReader {
+@ExcludeFromJacocoGeneratedReport
+public class TestReader extends TestJson{
 
     @Test
     void testReaderNonExistentFileCompetitions() {
@@ -31,6 +32,20 @@ public class TestReader {
         try {
             Competitions comps = reader.readCompetitions();
             assertEquals(0, comps.size());
+        } catch (IOException e) {
+            fail("Couldn't read from file");
+        }
+    }
+
+    @Test
+    void testReaderGeneralCompetitions() {
+        JsonReader reader = new JsonReader("./data/testReaderGeneralCompetitions.json");
+        try {
+            Competitions comps = reader.readCompetitions();
+            assertEquals(2, comps.size());
+            List<Hyrox> hyroxs = comps.getCompetitions();
+            checkCompetition("Hyrox Open", 150, "mixed", 90, hyroxs.get(0));
+            checkCompetition("US Hyrox", 180, "male", 75, hyroxs.get(1));
         } catch (IOException e) {
             fail("Couldn't read from file");
         }
