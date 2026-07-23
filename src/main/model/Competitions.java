@@ -3,6 +3,7 @@ package model;
 import java.util.ArrayList;
 
 import org.json.JSONObject;
+import org.json.JSONArray;
 
 import persistence.Writable;
 
@@ -34,7 +35,19 @@ public class Competitions implements Writable{
     @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
-        json.put("thingies", hyroxsToJson());
+        json.put("listOfHyrox", hyroxsToJson());
         return json;
+    }
+
+    // modeled from example project JsonSerialization
+    // EFFECTS: returns things in this workroom as a JSON array
+    private JSONArray hyroxsToJson() {
+        JSONArray jsonArray = new JSONArray();
+
+        for (Hyrox h : listofHyrox) {
+            jsonArray.put(h.toJson());
+        }
+
+        return jsonArray;
     }
 }
