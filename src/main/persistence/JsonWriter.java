@@ -43,7 +43,8 @@ public class JsonWriter {
     // MODIFIES: this
     // EFFECTS: writes JSON representation of Wishlist to file
     public void write(Wishlist wl) {
-        
+        JSONObject json = wl.toJson();
+        saveToFile(json.toString(TAB));
     }
 
     // MODIFIES: this
