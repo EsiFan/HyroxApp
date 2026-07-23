@@ -61,4 +61,15 @@ public class TestReader extends TestJson{
             // pass
         }
     }
+
+    @Test
+    void testReaderEmptyInstantsHistory() {
+        JsonReader reader = new JsonReader("./data/testReaderEmptyInstantsHistory.json");
+        try {
+            InstantsHistory ins = reader.readInstantsHistory();
+            assertEquals(0, ins.size());
+        } catch (IOException e) {
+            fail("Couldn't read from file");
+        }
+    }
 }
