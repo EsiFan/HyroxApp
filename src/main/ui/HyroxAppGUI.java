@@ -201,22 +201,24 @@ public class HyroxAppGUI extends JFrame implements ActionListener {
         dialog.setVisible(true);
     }
 
-    // EFFECTS: makes a hyrox and adds it to the list of competitions
+    // EFFECTS: makes a hyrox and adds it to the Competitions
     // MODIFIES: this
     private void doMakeHyrox() {
         JDialog dialog = new JDialog(this, "Add a Hyrox", true);
         JPanel panel = new JPanel();
         JTextField titleField = new JTextField();
-        JSpinner weightClassSpinner = new JSpinner(new SpinnerNumberModel(100, 100, 250, 5));
+        JSpinner weightClassSpinner = new JSpinner(new SpinnerNumberModel(100, 100,
+                250, 5));
         JComboBox<String> genderComboBox = new JComboBox<>();
-        JSpinner minTimeRecSpinner = new JSpinner(new SpinnerNumberModel(60, 50, 210, 1));
-        JButton recordButton = new JButton("Add");
+        JSpinner minTimeRecSpinner = new JSpinner(new SpinnerNumberModel(60, 50,
+                210, 1));
+        JButton makeButton = new JButton("Add");
 
         genderComboBox.addItem("male");
         genderComboBox.addItem("female");
         genderComboBox.addItem("mixed");
 
-        recordButton.addActionListener(e -> {
+        makeButton.addActionListener(e -> {
             String title = titleField.getText();
             int weightClass = (int) weightClassSpinner.getValue();
             String gender = (String) genderComboBox.getSelectedItem();
@@ -242,6 +244,66 @@ public class HyroxAppGUI extends JFrame implements ActionListener {
 
         panel.add(new JLabel("Minimum Time Record:"));
         panel.add(minTimeRecSpinner);
+
+        panel.add(makeButton);
+
+        dialog.add(panel);
+        dialog.setVisible(true);
+    }
+
+    // EFFECTS: makes an instance and adds it to the InstantsHistory
+    // MODIFIES: this
+    private void doRecordInstant() {
+        JDialog dialog = new JDialog(this, "Record and Instance", true);
+        JPanel panel = new JPanel();
+        JTextField titleField = new JTextField();
+        JSpinner timeSkiErgSpinner = new JSpinner(new SpinnerNumberModel(10, 0,
+                50, 1));
+        JSpinner timeBJJSpinner = new JSpinner(new SpinnerNumberModel(10, 0,
+                50, 1));
+        JSpinner timeSPushSpinner = new JSpinner(new SpinnerNumberModel(10, 0,
+                50, 1));
+        JSpinner timeSPullSpinner = new JSpinner(new SpinnerNumberModel(10, 0,
+                50, 1));
+        JSpinner timeRowingSpinner = new JSpinner(new SpinnerNumberModel(10, 0,
+                50, 1));
+        JSpinner timeFCSpinner = new JSpinner(new SpinnerNumberModel(10, 0,
+                50, 1));
+        JSpinner timeSLSpinner = new JSpinner(new SpinnerNumberModel(10, 0,
+                50, 1));
+        JSpinner timeWallBallSpinner = new JSpinner(new SpinnerNumberModel(10, 0,
+                50, 1));
+        JSpinner sumTimeRunsSpinner = new JSpinner(new SpinnerNumberModel(10, 0,
+                50, 1));
+        JButton recordButton = new JButton("Add");
+
+        recordButton.addActionListener(e -> {
+            String title = titleField.getText();
+            int timeSkiErg = (int) timeSkiErgSpinner.getValue();
+            int timeBBJ = (int) timeBJJSpinner.getValue();
+            int timeSPush = (int) timeSPushSpinner.getValue();
+            int timeSPull = (int) timeSPullSpinner.getValue();
+            int timeRowing = (int) timeRowingSpinner.getValue();
+            int timeFC = (int) timeFCSpinner.getValue();
+            int timeSL = (int) timeSLSpinner.getValue();
+            int timeWallBall = (int) timeWallBallSpinner.getValue();
+            int sumTimeRuns = (int) sumTimeRunsSpinner.getValue();
+            InstantHyrox instance = new InstantHyrox(title, timeSkiErg, timeSPush, timeSPull, timeBBJ, timeRowing,
+                    timeFC, timeSL, timeWallBall, sumTimeRuns);
+            instantsHistory.addInstant(instance);
+            dialog.dispose();
+        });
+
+        dialog.setSize(300, 400);
+        dialog.setLocationRelativeTo(this);
+
+        panel.setLayout(new GridLayout(0, 2, 15, 10));
+
+        panel.add(new JLabel("Title:"));
+        panel.add(titleField);
+
+        panel.add(new JLabel("Weight Class:"));
+        panel.add(timeSkiErgSpinner);
 
         panel.add(recordButton);
 
