@@ -10,6 +10,7 @@ import persistence.JsonWriter;
 
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
@@ -18,6 +19,8 @@ import java.util.*;
 
 import javax.swing.AbstractButton;
 import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -25,12 +28,15 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
+import javax.swing.JSpinner;
+import javax.swing.JTextField;
+import javax.swing.SpinnerNumberModel;
 
 import ca.ubc.cs.ExcludeFromJacocoGeneratedReport;
 
 // Hyrox app w Graphical User Interface
 @ExcludeFromJacocoGeneratedReport
-public class HyroxAppGUI  extends JFrame implements ActionListener {
+public class HyroxAppGUI extends JFrame implements ActionListener {
     private static final String JSON_STORE = "./data/hyroxApp.json";
     private Competitions competitions;
     private InstantsHistory instantsHistory;
@@ -45,8 +51,10 @@ public class HyroxAppGUI  extends JFrame implements ActionListener {
     private JMenu quitMenu;
     private JMenuItem saveItem;
     private JMenuItem loadItem;
-    private JMenuItem quitItem; 
+    private JMenuItem quitItem;
     private JMenuItem wishlistItem;
+    private JMenuItem hyroxItem;
+    private JMenuItem instantItem;
     private JPanel panel;
 
     // EFFECTS: runs the hyrox application
@@ -68,17 +76,7 @@ public class HyroxAppGUI  extends JFrame implements ActionListener {
 
         menuItemSetup();
 
-        menuBar.add(fileMenu);
-        menuBar.add(viewMenu);
-        menuBar.add(addMenu);
-        menuBar.add(quitMenu);
-
-        fileMenu.add(saveItem);
-        fileMenu.add(loadItem);
-
-        viewMenu.add(wishlistItem);
-
-        quitMenu.add(quitItem);
+        addMenuItems();
 
         this.setJMenuBar(menuBar);
         this.setVisible(true);
@@ -94,16 +92,39 @@ public class HyroxAppGUI  extends JFrame implements ActionListener {
 
     // EFFECTS: makes the menu items
     private void menuItemSetup() {
-        saveItem = new JMenuItem("save");   // File menu items
+        saveItem = new JMenuItem("save"); // File menu items
         saveItem.addActionListener(this);
         loadItem = new JMenuItem("load");
         loadItem.addActionListener(this);
 
-        wishlistItem = new JMenuItem("wishlist");   // View menu items
+        wishlistItem = new JMenuItem("wishlist"); // View menu items
         wishlistItem.addActionListener(this);
 
-        quitItem = new JMenuItem("quit");   // Quit menu items 
+        hyroxItem = new JMenuItem("hyrox"); // File menu items
+        hyroxItem.addActionListener(this);
+        instantItem = new JMenuItem("ionstant");
+        instantItem.addActionListener(this);
+
+        quitItem = new JMenuItem("quit"); // Quit menu items
         quitItem.addActionListener(this);
+    }
+
+    // EFFECTS: adds the menu items to corerspondiong menu
+    private void addMenuItems() {
+        menuBar.add(fileMenu);
+        menuBar.add(viewMenu);
+        menuBar.add(addMenu);
+        menuBar.add(quitMenu);
+
+        fileMenu.add(saveItem);
+        fileMenu.add(loadItem);
+
+        viewMenu.add(wishlistItem);
+
+        addMenu.add(hyroxItem);
+        addMenu.add(instantItem);
+
+        quitMenu.add(quitItem);
     }
 
     // EFFECTS: Initializes the aspects of the app
@@ -148,6 +169,7 @@ public class HyroxAppGUI  extends JFrame implements ActionListener {
         }
     }
 
+    // EFFECTS: shows the wishlist of the titles comps the user is possibly go to
     private void doViewWishlist() {
         int wlLength = wishlist.getWishlist().size();
         ArrayList<String> wl = wishlist.getWishlist();
@@ -167,13 +189,61 @@ public class HyroxAppGUI  extends JFrame implements ActionListener {
 
             for (String name : wl) {
                 panel.add(new JLabel(name));
-            }   
+            }
         } else {
             JLabel noComp = new JLabel();
             noComp.setFont(new Font("Arial", Font.BOLD, 24));
             noComp.setText("No competitions... ");
             panel.add(noComp);
         }
+
+        dialog.add(panel);
+        dialog.setVisible(true);
+    }
+
+    // EFFECTS: makes a hyrox and adds it to the list of competitions
+    // MODIFIES: this
+    private void doMakeHyrox() {
+        JDialog dialog = new JDialog(this, "Add a Hyrox", true);
+        JPanel panel = new JPanel();
+        JTextField titleField = new JTextField();
+        JSpinner weightClassSpinner = new JSpinner(new SpinnerNumberModel(100, 100, 250, 5));
+        JComboBox<String> genderComboBox = new JComboBox<>();
+        JSpinner minTimeRecSpinner = new JSpinner(new SpinnerNumberModel(60, 50, 210, 1));
+        JButton recordButton = new JButton("Add");
+
+        genderComboBox.addItem("male");
+        genderComboBox.addItem("female");
+        genderComboBox.addItem("mixed");
+
+        recordButton.addActionListener(e -> {
+            String title = titleField.getText();
+            int weightClass = (int) weightClassSpinner.getValue();
+            String gender = (String) genderComboBox.getSelectedItem();
+            int minTimeRec = (int) minTimeRecSpinner.getValue();
+            Hyrox hyrox = new Hyrox(title, weightClass, gender, minTimeRec);
+            competitions.addComp(hyrox);
+            dialog.dispose();
+        });
+
+        dialog.setSize(300, 400);
+        dialog.setLocationRelativeTo(this);
+
+        panel.setLayout(new GridLayout(0, 2, 15, 10));
+
+        panel.add(new JLabel("Title:"));
+        panel.add(titleField);
+
+        panel.add(new JLabel("Weight Class:"));
+        panel.add(weightClassSpinner);
+
+        panel.add(new JLabel("Gender:"));
+        panel.add(genderComboBox);
+
+        panel.add(new JLabel("Minimum Time Record:"));
+        panel.add(minTimeRecSpinner);
+
+        panel.add(recordButton);
 
         dialog.add(panel);
         dialog.setVisible(true);
@@ -195,6 +265,10 @@ public class HyroxAppGUI  extends JFrame implements ActionListener {
 
         if (e.getSource() == wishlistItem) {
             doViewWishlist();
+        }
+
+        if (e.getSource() == hyroxItem) {
+            doMakeHyrox();
         }
     }
 }
