@@ -58,7 +58,9 @@ public class HyroxAppGUI  extends JFrame implements ActionListener{
         quitMenu = new JMenu("Quit");
 
         saveItem = new JMenuItem("save");
+        saveItem.addActionListener(this);
         loadItem = new JMenuItem("load");
+        loadItem.addActionListener(this);
 
         quitItem = new JMenuItem("quit");
         quitItem.addActionListener(this);
@@ -89,10 +91,49 @@ public class HyroxAppGUI  extends JFrame implements ActionListener{
         wl = new ArrayList<String>();
     }
 
+    // modeled from example project JsonSerialization
+    // EFFECTS: saves the Competitions, InstantsHistory, and Wishlist to file
+    private void saveHyroxAppData() {
+        try {
+            jsonWriter.open();
+            jsonWriter.write(competitions, instantsHistory, wishlist);
+            jsonWriter.close();
+            System.out.println("Saved Competitions to " + JSON_STORE);
+            System.out.println("Saved Instants History to " + JSON_STORE);
+            System.out.println("Saved Wishlist to " + JSON_STORE);
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to write to file: " + JSON_STORE);
+        }
+    }
+
+    // modeled from example project JsonSerialization
+    // MODIFIES: this
+    // EFFECTS: loads Competitions, InstantsHistory, and Wishlist from file
+    private void loadSavedHyroxAppData() {
+        try {
+            competitions = jsonReader.readCompetitions();
+            System.out.println("Loaded saved competitions from " + JSON_STORE);
+            instantsHistory = jsonReader.readInstantsHistory();
+            System.out.println("Loaded saved practice runs data from " + JSON_STORE);
+            wishlist = jsonReader.readWishlist();
+            System.out.println("Loaded saved wishlist competitions from " + JSON_STORE);
+        } catch (IOException e) {
+            System.out.println("Unable to read from file: " + JSON_STORE);
+        }
+    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == quitItem) {
             System.exit(0);
+        }
+
+        if (e.getSource() == saveItem) {
+            saveHyroxAppData();
+        }
+
+        if (e.getSource() == loadItem) {
+            loadSavedHyroxAppData();
         }
     }
 }
