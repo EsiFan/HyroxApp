@@ -28,7 +28,27 @@ public class HyroxApp {
 
     // EFFECTS: tuns the hyrox application
     public HyroxApp() {
-        runHyrox();
+        // runHyrox();      // use this for terminal based application
+        runHyroxGUI();    // use this for GUI based application
+    }
+
+
+    private void runHyroxGUI() {
+        init();
+        MainMenuFrame mainMenu = new MainMenuFrame();
+    }
+
+
+    // EFFECTS: Initializes the aspects of the app
+    // MODIFIES: this
+    private void init() {
+        input = new Scanner(System.in);
+        competitions = new Competitions();
+        instantsHistory = new InstantsHistory();
+        wishlist = new Wishlist();
+        jsonReader = new JsonReader(JSON_STORE);
+        jsonWriter = new JsonWriter(JSON_STORE);
+        wl = new ArrayList<String>();
     }
 
     // MODIFIES: this
@@ -51,18 +71,6 @@ public class HyroxApp {
         }
 
         System.out.println("\nExitting application now...");
-    }
-
-    // EFFECTS: Initializes the aspects of the app
-    // MODIFIES: this
-    private void init() {
-        input = new Scanner(System.in);
-        competitions = new Competitions();
-        instantsHistory = new InstantsHistory();
-        wishlist = new Wishlist();
-        jsonReader = new JsonReader(JSON_STORE);
-        jsonWriter = new JsonWriter(JSON_STORE);
-        wl = new ArrayList<String>();
     }
 
     // EFFECTS: shows menu options to the user
