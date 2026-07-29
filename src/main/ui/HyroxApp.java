@@ -28,17 +28,9 @@ public class HyroxApp {
 
     // EFFECTS: tuns the hyrox application
     public HyroxApp() {
-        // runHyrox();      // use this for terminal based application
-        runHyroxGUI();    // use this for GUI based application
+        runHyrox();      
     }
-
-
-    private void runHyroxGUI() {
-        init();
-        MainMenuFrame mainMenu = new MainMenuFrame();
-    }
-
-
+    
     // EFFECTS: Initializes the aspects of the app
     // MODIFIES: this
     private void init() {
