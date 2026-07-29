@@ -7,6 +7,7 @@ import ca.ubc.cs.ExcludeFromJacocoGeneratedReport;
 
 public class Main {
     public static void main(String[] args) {
-        new HyroxApp();
+        // new HyroxApp();    // use this for the terminal based app
+        new HyroxAppGUI();    // use this for the GUI based app
     }
 }
