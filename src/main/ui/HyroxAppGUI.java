@@ -259,7 +259,7 @@ public class HyroxAppGUI extends JFrame implements ActionListener {
         JTextField titleField = new JTextField();
         JSpinner timeSkiErgSpinner = new JSpinner(new SpinnerNumberModel(10, 0,
                 50, 1));
-        JSpinner timeBJJSpinner = new JSpinner(new SpinnerNumberModel(10, 0,
+        JSpinner timeBBJSpinner = new JSpinner(new SpinnerNumberModel(10, 0,
                 50, 1));
         JSpinner timeSPushSpinner = new JSpinner(new SpinnerNumberModel(10, 0,
                 50, 1));
@@ -280,7 +280,7 @@ public class HyroxAppGUI extends JFrame implements ActionListener {
         recordButton.addActionListener(e -> {
             String title = titleField.getText();
             int timeSkiErg = (int) timeSkiErgSpinner.getValue();
-            int timeBBJ = (int) timeBJJSpinner.getValue();
+            int timeBBJ = (int) timeBBJSpinner.getValue();
             int timeSPush = (int) timeSPushSpinner.getValue();
             int timeSPull = (int) timeSPullSpinner.getValue();
             int timeRowing = (int) timeRowingSpinner.getValue();
@@ -302,8 +302,32 @@ public class HyroxAppGUI extends JFrame implements ActionListener {
         panel.add(new JLabel("Title:"));
         panel.add(titleField);
 
-        panel.add(new JLabel("Weight Class:"));
+        panel.add(new JLabel("Ski Erg:"));
         panel.add(timeSkiErgSpinner);
+
+        panel.add(new JLabel("Sled Push:"));
+        panel.add(timeSPushSpinner);
+
+        panel.add(new JLabel("Sled Pull:"));
+        panel.add(timeSPullSpinner);
+
+        panel.add(new JLabel("Burpee Board Jump:"));
+        panel.add(timeBBJSpinner);
+
+        panel.add(new JLabel("Rowing:"));
+        panel.add(timeRowingSpinner);
+
+        panel.add(new JLabel("Farmers Carry:"));
+        panel.add(timeFCSpinner);
+
+        panel.add(new JLabel("Sandbag Lunges:"));
+        panel.add(timeSLSpinner);
+
+        panel.add(new JLabel("WallBall:"));
+        panel.add(timeWallBallSpinner);
+
+        panel.add(new JLabel("Running:"));
+        panel.add(sumTimeRunsSpinner);
 
         panel.add(recordButton);
 
@@ -331,6 +355,10 @@ public class HyroxAppGUI extends JFrame implements ActionListener {
 
         if (e.getSource() == hyroxItem) {
             doMakeHyrox();
+        }
+
+        if (e.getSource() == instantItem) {
+            doRecordInstant();
         }
     }
 }
