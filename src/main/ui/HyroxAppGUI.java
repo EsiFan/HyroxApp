@@ -63,6 +63,17 @@ public class HyroxAppGUI extends JFrame implements ActionListener {
     private JComboBox<String> genderComboBox;
     private JSpinner minTimeRecSpinner;
     private JButton makeButton;
+    private JTextField titleInstantField;
+    private JSpinner timeSkiErgSpinner;
+    private JSpinner timeBBJSpinner;
+    private JSpinner timeSPushSpinner;
+    private JSpinner timeSPullSpinner;
+    private JSpinner timeRowingSpinner;
+    private JSpinner timeFCSpinner;
+    private JSpinner timeSLSpinner;
+    private JSpinner timeWallBallSpinner;
+    private JSpinner sumTimeRunsSpinner;
+    private JButton recordButton;
 
     // EFFECTS: runs the hyrox application
     // MODIFIES: this
@@ -226,6 +237,8 @@ public class HyroxAppGUI extends JFrame implements ActionListener {
         dialog.setSize(300, 400);
         dialog.setLocationRelativeTo(this);
 
+        panelDialog.setLayout(new GridLayout(0, 2, 15, 10));
+
         addPanleDialogComponenetsMakeHyrox();
 
         dialog.add(panelDialog);
@@ -251,8 +264,6 @@ public class HyroxAppGUI extends JFrame implements ActionListener {
 
     // EFFECTS: add componenets to the Dialog panel for MakeHyrox
     private void addPanleDialogComponenetsMakeHyrox() {
-        panelDialog.setLayout(new GridLayout(0, 2, 15, 10));
-
         panelDialog.add(new JLabel("Title:"));
         panelDialog.add(titleHyroxField);
 
@@ -271,31 +282,10 @@ public class HyroxAppGUI extends JFrame implements ActionListener {
     // EFFECTS: makes an instance and adds it to the InstantsHistory
     // MODIFIES: this
     private void doRecordInstant() {
-        JDialog dialog = new JDialog(this, "Record and Instance", true);
-        JPanel panel = new JPanel();
-        JTextField titleField = new JTextField();
-        JSpinner timeSkiErgSpinner = new JSpinner(new SpinnerNumberModel(10, 0,
-                50, 1));
-        JSpinner timeBBJSpinner = new JSpinner(new SpinnerNumberModel(10, 0,
-                50, 1));
-        JSpinner timeSPushSpinner = new JSpinner(new SpinnerNumberModel(10, 0,
-                50, 1));
-        JSpinner timeSPullSpinner = new JSpinner(new SpinnerNumberModel(10, 0,
-                50, 1));
-        JSpinner timeRowingSpinner = new JSpinner(new SpinnerNumberModel(10, 0,
-                50, 1));
-        JSpinner timeFCSpinner = new JSpinner(new SpinnerNumberModel(10, 0,
-                50, 1));
-        JSpinner timeSLSpinner = new JSpinner(new SpinnerNumberModel(10, 0,
-                50, 1));
-        JSpinner timeWallBallSpinner = new JSpinner(new SpinnerNumberModel(10, 0,
-                50, 1));
-        JSpinner sumTimeRunsSpinner = new JSpinner(new SpinnerNumberModel(10, 0,
-                50, 1));
-        JButton recordButton = new JButton("Add");
+        initComponenetsRecordInstant();
 
         recordButton.addActionListener(e -> {
-            String title = titleField.getText();
+            String title = titleInstantField.getText();
             int timeSkiErg = (int) timeSkiErgSpinner.getValue();
             int timeBBJ = (int) timeBBJSpinner.getValue();
             int timeSPush = (int) timeSPushSpinner.getValue();
@@ -314,42 +304,73 @@ public class HyroxAppGUI extends JFrame implements ActionListener {
         dialog.setSize(300, 400);
         dialog.setLocationRelativeTo(this);
 
-        panel.setLayout(new GridLayout(0, 2, 15, 10));
+        panelDialog.setLayout(new GridLayout(0, 2, 15, 10));
 
-        panel.add(new JLabel("Title:"));
-        panel.add(titleField);
-
-        panel.add(new JLabel("Ski Erg:"));
-        panel.add(timeSkiErgSpinner);
-
-        panel.add(new JLabel("Sled Push:"));
-        panel.add(timeSPushSpinner);
-
-        panel.add(new JLabel("Sled Pull:"));
-        panel.add(timeSPullSpinner);
-
-        panel.add(new JLabel("Burpee Board Jump:"));
-        panel.add(timeBBJSpinner);
-
-        panel.add(new JLabel("Rowing:"));
-        panel.add(timeRowingSpinner);
-
-        panel.add(new JLabel("Farmers Carry:"));
-        panel.add(timeFCSpinner);
-
-        panel.add(new JLabel("Sandbag Lunges:"));
-        panel.add(timeSLSpinner);
-
-        panel.add(new JLabel("WallBall:"));
-        panel.add(timeWallBallSpinner);
-
-        panel.add(new JLabel("Running:"));
-        panel.add(sumTimeRunsSpinner);
-
-        panel.add(recordButton);
+        addPanleDialogComponenetsRecordInstant();
 
         dialog.add(panel);
         dialog.setVisible(true);
+    }
+
+    // EFFECTS: initialize RecordInstant componenets
+    private void initComponenetsRecordInstant() {
+        dialog = new JDialog(this, "Record and Instance", true);
+        panelDialog = new JPanel();
+        titleInstantField = new JTextField();
+        timeSkiErgSpinner = new JSpinner(new SpinnerNumberModel(10, 0,
+                50, 1));
+        timeBBJSpinner = new JSpinner(new SpinnerNumberModel(10, 0,
+                50, 1));
+        timeSPushSpinner = new JSpinner(new SpinnerNumberModel(10, 0,
+                50, 1));
+        timeSPullSpinner = new JSpinner(new SpinnerNumberModel(10, 0,
+                50, 1));
+        timeRowingSpinner = new JSpinner(new SpinnerNumberModel(10, 0,
+                50, 1));
+        timeFCSpinner = new JSpinner(new SpinnerNumberModel(10, 0,
+                50, 1));
+        timeSLSpinner = new JSpinner(new SpinnerNumberModel(10, 0,
+                50, 1));
+        timeWallBallSpinner = new JSpinner(new SpinnerNumberModel(10, 0,
+                50, 1));
+        sumTimeRunsSpinner = new JSpinner(new SpinnerNumberModel(10, 0,
+                50, 1));
+        recordButton = new JButton("Add");
+    }
+
+    // EFFECTS: add componenets to Dialog Panel for Record Instant
+    private void addPanleDialogComponenetsRecordInstant() {
+        panelDialog.add(new JLabel("Title:"));
+        panelDialog.add(titleInstantField);
+
+        panelDialog.add(new JLabel("Ski Erg:"));
+        panelDialog.add(timeSkiErgSpinner);
+
+        panelDialog.add(new JLabel("Sled Push:"));
+        panelDialog.add(timeSPushSpinner);
+
+        panelDialog.add(new JLabel("Sled Pull:"));
+        panelDialog.add(timeSPullSpinner);
+
+        panelDialog.add(new JLabel("Burpee Board Jump:"));
+        panelDialog.add(timeBBJSpinner);
+
+        panelDialog.add(new JLabel("Rowing:"));
+        panelDialog.add(timeRowingSpinner);
+
+        panelDialog.add(new JLabel("Farmers Carry:"));
+        panelDialog.add(timeFCSpinner);
+
+        panelDialog.add(new JLabel("Sandbag Lunges:"));
+        panelDialog.add(timeSLSpinner);
+
+        panelDialog.add(new JLabel("WallBall:"));
+        panelDialog.add(timeWallBallSpinner);
+
+        panelDialog.add(new JLabel("Running:"));
+        panelDialog.add(sumTimeRunsSpinner);
+
+        panelDialog.add(recordButton);
     }
 
     @Override
