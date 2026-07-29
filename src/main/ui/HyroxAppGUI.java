@@ -44,28 +44,33 @@ public class HyroxAppGUI extends JFrame implements ActionListener {
     private JsonReader jsonReader;
     private JsonWriter jsonWriter;
     private ArrayList<String> wl;
+
     private JMenuBar menuBar;
     private JMenu fileMenu;
-    private JMenu viewMenu;
+    private JMenu wishlistMenu;
     private JMenu addMenu;
     private JMenu quitMenu;
     private JMenuItem saveItem;
     private JMenuItem loadItem;
     private JMenuItem quitItem;
-    private JMenuItem wishlistItem;
+    private JMenuItem viewItem;
     private JMenuItem hyroxItem;
     private JMenuItem instantItem;
+    private JMenuItem updateItem;
+
     private JDialog dialog;
     private JPanel panelDialog;
     private JPanel panel;
+
     private JTextField titleHyroxField;
-    private JSpinner weightClassSpinner ;
+    private JSpinner weightClassSpinner;
     private JComboBox<String> genderComboBox;
     private JSpinner minTimeRecSpinner;
     private JButton makeButton;
+
     private JTextField titleInstantField;
     private JSpinner timeSkiErgSpinner;
-    private JSpinner timeBBJSpinner;
+    private JSpinner timeBBJumpSpinner;
     private JSpinner timeSPushSpinner;
     private JSpinner timeSPullSpinner;
     private JSpinner timeRowingSpinner;
@@ -97,13 +102,14 @@ public class HyroxAppGUI extends JFrame implements ActionListener {
         addMenuItems();
 
         this.setJMenuBar(menuBar);
+        
         this.setVisible(true);
     }
 
     // EFFECTS: makes the menus
     private void menuSetup() {
         fileMenu = new JMenu("File");
-        viewMenu = new JMenu("View");
+        wishlistMenu = new JMenu("Wishlist");
         addMenu = new JMenu("Add");
         quitMenu = new JMenu("Quit");
     }
@@ -115,12 +121,14 @@ public class HyroxAppGUI extends JFrame implements ActionListener {
         loadItem = new JMenuItem("load");
         loadItem.addActionListener(this);
 
-        wishlistItem = new JMenuItem("wishlist"); // View menu items
-        wishlistItem.addActionListener(this);
+        viewItem = new JMenuItem("view"); // Wishlist menu items
+        viewItem.addActionListener(this);
+        updateItem = new JMenuItem("update");
+        updateItem.addActionListener(this);
 
         hyroxItem = new JMenuItem("hyrox"); // File menu items
         hyroxItem.addActionListener(this);
-        instantItem = new JMenuItem("ionstant");
+        instantItem = new JMenuItem("instant");
         instantItem.addActionListener(this);
 
         quitItem = new JMenuItem("quit"); // Quit menu items
@@ -130,14 +138,15 @@ public class HyroxAppGUI extends JFrame implements ActionListener {
     // EFFECTS: adds the menu items to corerspondiong menu
     private void addMenuItems() {
         menuBar.add(fileMenu);
-        menuBar.add(viewMenu);
+        menuBar.add(wishlistMenu);
         menuBar.add(addMenu);
         menuBar.add(quitMenu);
 
         fileMenu.add(saveItem);
         fileMenu.add(loadItem);
 
-        viewMenu.add(wishlistItem);
+        wishlistMenu.add(viewItem);
+        wishlistMenu.add(updateItem);
 
         addMenu.add(hyroxItem);
         addMenu.add(instantItem);
@@ -287,7 +296,7 @@ public class HyroxAppGUI extends JFrame implements ActionListener {
         recordButton.addActionListener(e -> {
             String title = titleInstantField.getText();
             int timeSkiErg = (int) timeSkiErgSpinner.getValue();
-            int timeBBJ = (int) timeBBJSpinner.getValue();
+            int timeBBJ = (int) timeBBJumpSpinner.getValue();
             int timeSPush = (int) timeSPushSpinner.getValue();
             int timeSPull = (int) timeSPullSpinner.getValue();
             int timeRowing = (int) timeRowingSpinner.getValue();
@@ -308,7 +317,7 @@ public class HyroxAppGUI extends JFrame implements ActionListener {
 
         addPanleDialogComponenetsRecordInstant();
 
-        dialog.add(panel);
+        dialog.add(panelDialog);
         dialog.setVisible(true);
     }
 
@@ -319,7 +328,7 @@ public class HyroxAppGUI extends JFrame implements ActionListener {
         titleInstantField = new JTextField();
         timeSkiErgSpinner = new JSpinner(new SpinnerNumberModel(10, 0,
                 50, 1));
-        timeBBJSpinner = new JSpinner(new SpinnerNumberModel(10, 0,
+        timeBBJumpSpinner = new JSpinner(new SpinnerNumberModel(10, 0,
                 50, 1));
         timeSPushSpinner = new JSpinner(new SpinnerNumberModel(10, 0,
                 50, 1));
@@ -353,7 +362,7 @@ public class HyroxAppGUI extends JFrame implements ActionListener {
         panelDialog.add(timeSPullSpinner);
 
         panelDialog.add(new JLabel("Burpee Board Jump:"));
-        panelDialog.add(timeBBJSpinner);
+        panelDialog.add(timeBBJumpSpinner);
 
         panelDialog.add(new JLabel("Rowing:"));
         panelDialog.add(timeRowingSpinner);
@@ -373,6 +382,42 @@ public class HyroxAppGUI extends JFrame implements ActionListener {
         panelDialog.add(recordButton);
     }
 
+    // EFFECTS: updates thee wishliist with the hyroxes
+    // that user is eligible for
+    // MODIFIES: this
+    private void doUpdateWishlist() {
+        int lengthComp = competitions.getCompetitions().size();
+        int lengthInsHis = instantsHistory.getInstantsHistory().size();
+        int record;
+        wl.clear();
+        if (!(lengthInsHis == 0)) {
+            InstantHyrox lastInstant = instantsHistory.getInstantsHistory().get(lengthInsHis - 1);
+            record = lastInstant.totalTime();
+
+            for (int i = 0; i < lengthComp; i++) {
+                Hyrox cmp = competitions.getCompetitions().get(i);
+                int minRec = cmp.getMinTimeRec();
+                if (minRec >= record && notDuplicate(cmp.getTitle())) {
+                    wl.add(cmp.getTitle());
+                }
+            }
+
+            wishlist.addHyroxs(wl);
+        } else {
+            System.out.println("No instantces... ");
+        }
+    }
+
+    // EFFECTS: checks if the given hyroxTitle is a duplicate in wishlist or not
+    private boolean notDuplicate(String hyroxTitle) {
+        for (String h : wishlist.getWishlist()) {
+            if (h.equals(hyroxTitle)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == quitItem) {
@@ -387,7 +432,7 @@ public class HyroxAppGUI extends JFrame implements ActionListener {
             loadSavedHyroxAppData();
         }
 
-        if (e.getSource() == wishlistItem) {
+        if (e.getSource() == viewItem) {
             doViewWishlist();
         }
 
@@ -397,6 +442,10 @@ public class HyroxAppGUI extends JFrame implements ActionListener {
 
         if (e.getSource() == instantItem) {
             doRecordInstant();
+        }
+
+        if (e.getSource() == updateItem) {
+            doUpdateWishlist();
         }
     }
 }
