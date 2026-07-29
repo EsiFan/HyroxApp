@@ -90,7 +90,7 @@ public class HyroxAppGUI extends JFrame implements ActionListener {
         init();
 
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setSize(600, 600);
+        this.setSize(1200, 650);
         this.setTitle("HyroxApp");
         this.setLayout(new FlowLayout());
 
@@ -105,7 +105,7 @@ public class HyroxAppGUI extends JFrame implements ActionListener {
 
         addMenuItems();
 
-        image = new ImageIcon(getClass().getResource("./data/HyroxApp.png"));
+        image = new ImageIcon("./data/HyroxApp.png");
         imageLabel = new JLabel(image);
         panel.add(imageLabel);
 
