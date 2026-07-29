@@ -37,9 +37,10 @@ public class HyroxAppGUI  extends JFrame implements ActionListener{
     private JMenu fileMenu;
     private JMenu viewMenu;
     private JMenu addMenu;
-    private JMenuItem save;
-    private JMenuItem load;
-    private JMenuItem exit;
+    private JMenu quitMenu;
+    private JMenuItem saveItem;
+    private JMenuItem loadItem;
+    private JMenuItem quitItem;
 
     // EFFECTS: runs the hyrox application
     public HyroxAppGUI() {
@@ -54,19 +55,23 @@ public class HyroxAppGUI  extends JFrame implements ActionListener{
         fileMenu = new JMenu("File");
         viewMenu = new JMenu("View");
         addMenu = new JMenu("Add");
+        quitMenu = new JMenu("Quit");
 
-        save = new JMenuItem("save");
-        load = new JMenuItem("load");
-        exit = new JMenuItem("exit");
+        saveItem = new JMenuItem("save");
+        loadItem = new JMenuItem("load");
+
+        quitItem = new JMenuItem("quit");
+        quitItem.addActionListener(this);
 
         menuBar.add(fileMenu);
         menuBar.add(viewMenu);
         menuBar.add(addMenu);
+        menuBar.add(quitMenu);
 
-        fileMenu.add(save);
-        fileMenu.add(load);
-        fileMenu.add(exit);
+        fileMenu.add(saveItem);
+        fileMenu.add(loadItem);
 
+        quitMenu.add(quitItem);
 
         this.setJMenuBar(menuBar);
         this.setVisible(true);
@@ -86,7 +91,8 @@ public class HyroxAppGUI  extends JFrame implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
+        if (e.getSource() == quitItem) {
+            System.exit(0);
+        }
     }
 }
