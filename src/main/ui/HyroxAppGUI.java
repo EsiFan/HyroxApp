@@ -15,6 +15,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.*;
 
+import javax.swing.AbstractButton;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -41,6 +42,9 @@ public class HyroxAppGUI  extends JFrame implements ActionListener{
     private JMenuItem saveItem;
     private JMenuItem loadItem;
     private JMenuItem quitItem;
+    private JMenuItem hyroxsItem;
+    private JMenuItem instancesItem;
+    private JMenuItem wishlistItem;
 
     // EFFECTS: runs the hyrox application
     public HyroxAppGUI() {
@@ -57,12 +61,19 @@ public class HyroxAppGUI  extends JFrame implements ActionListener{
         addMenu = new JMenu("Add");
         quitMenu = new JMenu("Quit");
 
-        saveItem = new JMenuItem("save");
+        saveItem = new JMenuItem("save");   // File menu items
         saveItem.addActionListener(this);
         loadItem = new JMenuItem("load");
         loadItem.addActionListener(this);
 
-        quitItem = new JMenuItem("quit");
+        hyroxsItem = new JMenuItem("hyroxs");   // View menu items
+        hyroxsItem.addActionListener(this);
+        instancesItem = new JMenuItem("instances");
+        instancesItem.addActionListener(this);
+        wishlistItem = new JMenuItem("wishlist");
+        wishlistItem.addActionListener(this);
+
+        quitItem = new JMenuItem("quit");   // Quit menu items 
         quitItem.addActionListener(this);
 
         menuBar.add(fileMenu);
@@ -135,5 +146,7 @@ public class HyroxAppGUI  extends JFrame implements ActionListener{
         if (e.getSource() == loadItem) {
             loadSavedHyroxAppData();
         }
+
+        // if (e.getSource() == 
     }
 }
