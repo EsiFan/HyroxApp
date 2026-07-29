@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 // modeled from example project JsonSerialization
 
-    @ExcludeFromJacocoGeneratedReport
+@ExcludeFromJacocoGeneratedReport
 public class TestJsonReader extends TestJson {
 
     @Test

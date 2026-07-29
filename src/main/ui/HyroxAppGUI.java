@@ -9,6 +9,7 @@ import persistence.JsonReader;
 import persistence.JsonWriter;
 
 import java.awt.FlowLayout;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
@@ -16,18 +17,21 @@ import java.io.IOException;
 import java.util.*;
 
 import javax.swing.AbstractButton;
+import javax.swing.BoxLayout;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JPanel;
 
 import ca.ubc.cs.ExcludeFromJacocoGeneratedReport;
 
 // Hyrox app w Graphical User Interface
 @ExcludeFromJacocoGeneratedReport
-public class HyroxAppGUI  extends JFrame implements ActionListener{
+public class HyroxAppGUI  extends JFrame implements ActionListener {
     private static final String JSON_STORE = "./data/hyroxApp.json";
-    private Scanner input;
     private Competitions competitions;
     private InstantsHistory instantsHistory;
     private Wishlist wishlist;
@@ -41,40 +45,28 @@ public class HyroxAppGUI  extends JFrame implements ActionListener{
     private JMenu quitMenu;
     private JMenuItem saveItem;
     private JMenuItem loadItem;
-    private JMenuItem quitItem;
-    private JMenuItem hyroxsItem;
-    private JMenuItem instancesItem;
+    private JMenuItem quitItem; 
     private JMenuItem wishlistItem;
+    private JPanel panel;
 
     // EFFECTS: runs the hyrox application
+    // MODIFIES: this
     public HyroxAppGUI() {
         init();
+
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(600, 600);
         this.setTitle("HyroxApp");
         this.setLayout(new FlowLayout());
 
+        panel = new JPanel();
+        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+
         menuBar = new JMenuBar();
 
-        fileMenu = new JMenu("File");
-        viewMenu = new JMenu("View");
-        addMenu = new JMenu("Add");
-        quitMenu = new JMenu("Quit");
+        menuSetup();
 
-        saveItem = new JMenuItem("save");   // File menu items
-        saveItem.addActionListener(this);
-        loadItem = new JMenuItem("load");
-        loadItem.addActionListener(this);
-
-        hyroxsItem = new JMenuItem("hyroxs");   // View menu items
-        hyroxsItem.addActionListener(this);
-        instancesItem = new JMenuItem("instances");
-        instancesItem.addActionListener(this);
-        wishlistItem = new JMenuItem("wishlist");
-        wishlistItem.addActionListener(this);
-
-        quitItem = new JMenuItem("quit");   // Quit menu items 
-        quitItem.addActionListener(this);
+        menuItemSetup();
 
         menuBar.add(fileMenu);
         menuBar.add(viewMenu);
@@ -84,16 +76,39 @@ public class HyroxAppGUI  extends JFrame implements ActionListener{
         fileMenu.add(saveItem);
         fileMenu.add(loadItem);
 
+        viewMenu.add(wishlistItem);
+
         quitMenu.add(quitItem);
 
         this.setJMenuBar(menuBar);
         this.setVisible(true);
     }
 
+    // EFFECTS: makes the menus
+    private void menuSetup() {
+        fileMenu = new JMenu("File");
+        viewMenu = new JMenu("View");
+        addMenu = new JMenu("Add");
+        quitMenu = new JMenu("Quit");
+    }
+
+    // EFFECTS: makes the menu items
+    private void menuItemSetup() {
+        saveItem = new JMenuItem("save");   // File menu items
+        saveItem.addActionListener(this);
+        loadItem = new JMenuItem("load");
+        loadItem.addActionListener(this);
+
+        wishlistItem = new JMenuItem("wishlist");   // View menu items
+        wishlistItem.addActionListener(this);
+
+        quitItem = new JMenuItem("quit");   // Quit menu items 
+        quitItem.addActionListener(this);
+    }
+
     // EFFECTS: Initializes the aspects of the app
     // MODIFIES: this
     private void init() {
-        input = new Scanner(System.in);
         competitions = new Competitions();
         instantsHistory = new InstantsHistory();
         wishlist = new Wishlist();
@@ -133,6 +148,37 @@ public class HyroxAppGUI  extends JFrame implements ActionListener{
         }
     }
 
+    private void doViewWishlist() {
+        int wlLength = wishlist.getWishlist().size();
+        ArrayList<String> wl = wishlist.getWishlist();
+
+        JDialog dialog = new JDialog(this, "Wishlist", true);
+        dialog.setSize(300, 300);
+        dialog.setLocationRelativeTo(this);
+
+        JPanel panel = new JPanel();
+        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+
+        if (!(wlLength == 0)) {
+            JLabel title = new JLabel();
+            title.setFont(new Font("Arial", Font.BOLD, 24));
+            title.setText("The list of Hyroxs that you are eligible for:");
+            panel.add(title);
+
+            for (String name : wl) {
+                panel.add(new JLabel(name));
+            }   
+        } else {
+            JLabel noComp = new JLabel();
+            noComp.setFont(new Font("Arial", Font.BOLD, 24));
+            noComp.setText("No competitions... ");
+            panel.add(noComp);
+        }
+
+        dialog.add(panel);
+        dialog.setVisible(true);
+    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == quitItem) {
@@ -147,6 +193,8 @@ public class HyroxAppGUI  extends JFrame implements ActionListener{
             loadSavedHyroxAppData();
         }
 
-        // if (e.getSource() == 
+        if (e.getSource() == wishlistItem) {
+            doViewWishlist();
+        }
     }
 }

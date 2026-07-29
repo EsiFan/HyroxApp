@@ -1,5 +1,8 @@
 {
     "Competitions": {"listOfHyrox": []},
     "InstantsHistory": {"listOfInstants": []},
-    "Wishlist": {"wishList": []}
+    "Wishlist": {"wishList": [
+        "1", 
+        "2"
+    ]}
 }
