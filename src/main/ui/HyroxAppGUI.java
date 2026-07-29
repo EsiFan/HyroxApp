@@ -55,7 +55,14 @@ public class HyroxAppGUI extends JFrame implements ActionListener {
     private JMenuItem wishlistItem;
     private JMenuItem hyroxItem;
     private JMenuItem instantItem;
+    private JDialog dialog;
+    private JPanel panelDialog;
     private JPanel panel;
+    private JTextField titleHyroxField;
+    private JSpinner weightClassSpinner ;
+    private JComboBox<String> genderComboBox;
+    private JSpinner minTimeRecSpinner;
+    private JButton makeButton;
 
     // EFFECTS: runs the hyrox application
     // MODIFIES: this
@@ -204,22 +211,10 @@ public class HyroxAppGUI extends JFrame implements ActionListener {
     // EFFECTS: makes a hyrox and adds it to the Competitions
     // MODIFIES: this
     private void doMakeHyrox() {
-        JDialog dialog = new JDialog(this, "Add a Hyrox", true);
-        JPanel panel = new JPanel();
-        JTextField titleField = new JTextField();
-        JSpinner weightClassSpinner = new JSpinner(new SpinnerNumberModel(100, 100,
-                250, 5));
-        JComboBox<String> genderComboBox = new JComboBox<>();
-        JSpinner minTimeRecSpinner = new JSpinner(new SpinnerNumberModel(60, 50,
-                210, 1));
-        JButton makeButton = new JButton("Add");
-
-        genderComboBox.addItem("male");
-        genderComboBox.addItem("female");
-        genderComboBox.addItem("mixed");
+        initComponentsMakeHyrox();
 
         makeButton.addActionListener(e -> {
-            String title = titleField.getText();
+            String title = titleHyroxField.getText();
             int weightClass = (int) weightClassSpinner.getValue();
             String gender = (String) genderComboBox.getSelectedItem();
             int minTimeRec = (int) minTimeRecSpinner.getValue();
@@ -231,24 +226,46 @@ public class HyroxAppGUI extends JFrame implements ActionListener {
         dialog.setSize(300, 400);
         dialog.setLocationRelativeTo(this);
 
-        panel.setLayout(new GridLayout(0, 2, 15, 10));
+        addPanleDialogComponenetsMakeHyrox();
 
-        panel.add(new JLabel("Title:"));
-        panel.add(titleField);
-
-        panel.add(new JLabel("Weight Class:"));
-        panel.add(weightClassSpinner);
-
-        panel.add(new JLabel("Gender:"));
-        panel.add(genderComboBox);
-
-        panel.add(new JLabel("Minimum Time Record:"));
-        panel.add(minTimeRecSpinner);
-
-        panel.add(makeButton);
-
-        dialog.add(panel);
+        dialog.add(panelDialog);
         dialog.setVisible(true);
+    }
+
+    // EFFECTS: initialize MakeHyrox componenets
+    private void initComponentsMakeHyrox() {
+        dialog = new JDialog(this, "Add a Hyrox", true);
+        panelDialog = new JPanel();
+        titleHyroxField = new JTextField();
+        weightClassSpinner = new JSpinner(new SpinnerNumberModel(100, 100,
+                250, 5));
+        genderComboBox = new JComboBox<>();
+        minTimeRecSpinner = new JSpinner(new SpinnerNumberModel(60, 50,
+                210, 1));
+        makeButton = new JButton("Add");
+
+        genderComboBox.addItem("male");
+        genderComboBox.addItem("female");
+        genderComboBox.addItem("mixed");
+    }
+
+    // EFFECTS: add componenets to the Dialog panel for MakeHyrox
+    private void addPanleDialogComponenetsMakeHyrox() {
+        panelDialog.setLayout(new GridLayout(0, 2, 15, 10));
+
+        panelDialog.add(new JLabel("Title:"));
+        panelDialog.add(titleHyroxField);
+
+        panelDialog.add(new JLabel("Weight Class:"));
+        panelDialog.add(weightClassSpinner);
+
+        panelDialog.add(new JLabel("Gender:"));
+        panelDialog.add(genderComboBox);
+
+        panelDialog.add(new JLabel("Minimum Time Record:"));
+        panelDialog.add(minTimeRecSpinner);
+
+        panelDialog.add(makeButton);
     }
 
     // EFFECTS: makes an instance and adds it to the InstantsHistory
