@@ -19,6 +19,7 @@ import java.util.*;
 
 import javax.swing.AbstractButton;
 import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
@@ -44,6 +45,9 @@ public class HyroxAppGUI extends JFrame implements ActionListener {
     private JsonReader jsonReader;
     private JsonWriter jsonWriter;
     private ArrayList<String> wl;
+
+    private ImageIcon image;
+    private JLabel imageLabel;
 
     private JMenuBar menuBar;
     private JMenu fileMenu;
@@ -100,6 +104,12 @@ public class HyroxAppGUI extends JFrame implements ActionListener {
         menuItemSetup();
 
         addMenuItems();
+
+        image = new ImageIcon(getClass().getResource("./data/HyroxApp.png"));
+        imageLabel = new JLabel(image);
+        panel.add(imageLabel);
+
+        this.add(panel);
 
         this.setJMenuBar(menuBar);
         
