@@ -1,24 +1,21 @@
 {
     "Competitions": {"listOfHyrox": [{
-        "weightClass": 100,
+        "weightClass": 150,
         "gender": "male",
-        "title": "dsfgsdfg",
-        "minTimeRec": 60
+        "title": "open",
+        "minTimeRec": 90
     }]},
     "InstantsHistory": {"listOfInstants": [{
         "timeSkiErg": 10,
         "timeBBJ": 10,
         "timeFC": 10,
         "timeWallBall": 10,
-        "sumTimeRuns": 10,
+        "sumTimeRuns": 9,
         "timeRowing": 10,
         "timeSL": 10,
         "timeSledPush": 10,
-        "title": "asdfsdffsadf",
+        "title": "July",
         "timeSledPull": 10
     }]},
-    "Wishlist": {"wishList": [
-        "1",
-        "2"
-    ]}
+    "Wishlist": {"wishList": ["open"]}
 }

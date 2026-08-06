@@ -105,6 +105,7 @@ public class HyroxAppGUI extends JFrame implements ActionListener {
 
         addMenuItems();
 
+        // This image was made using caluade.ai
         image = new ImageIcon("./data/HyroxApp.png");
         imageLabel = new JLabel(image);
         panel.add(imageLabel);
