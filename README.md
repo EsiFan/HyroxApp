@@ -55,3 +55,15 @@ Tue Aug 11 04:57:21 PDT 2026
 Practice instance Augusthas been added to the history  
 Tue Aug 11 04:57:23 PDT 2026  
 Eligible hyrox competitions has been added to wishlist  
+
+## Phase 4: Task 3
+
+The first thing I would do to make the structure of my design stronger, is to avoid any duplications. There is a  
+There is a significant amount of duplication seen in classes `Competitions` and `InstantsHistory`, these could be put  
+in a hierarchy system to handle their duplications. Also when adding the implementing the `windowListener` in  
+`HyroxAppGUI`, there are 6 out of 7 methods that are unused, for that prupose, I would add an inner class so it can help  
+me with tha empty implementation of the unused methods there.  
+Also, for he `toJson` methods in classes: `Hyrox`, `Competitions`, `InstantHyrox`, `InstantsHistory`, and `Wishlist`,  
+there is a lot of duplicate code which are very similar to each other, My idea to refactor those is to have a helper  
+method that takes the `Json` specific components as arguments and writes them into the `.json` file, this way with every  
+change I do not have to go ahead and fix each of those 5 methods one by one.
