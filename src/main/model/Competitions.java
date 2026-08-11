@@ -20,6 +20,7 @@ public class Competitions implements Writable {
     // MODIFIES: this
     public void addComp(Hyrox comp) {
         listofHyrox.add(comp);
+        EventLog.getInstance().logEvent(new Event("A Hyrox has been added to Competetitions"));
     }
 
     public ArrayList<Hyrox> getCompetitions() {

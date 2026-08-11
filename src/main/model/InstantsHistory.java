@@ -20,6 +20,7 @@ public class InstantsHistory implements Writable {
     // MODIFIES: this
     public void addInstant(InstantHyrox instant) {
         listOfInstants.add(instant);
+        EventLog.getInstance().logEvent(new Event("A practice instance has been added to the history"));
     }
 
     public ArrayList<InstantHyrox> getInstantsHistory() {

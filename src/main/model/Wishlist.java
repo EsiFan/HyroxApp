@@ -23,6 +23,8 @@ public class Wishlist implements Writable {
         for (String hyrox : hyroxTitles) {
             wishList.add(hyrox);
         }
+        EventLog.getInstance().logEvent(
+                new Event("Eligible hyrox competitions has been added to wishlist"));
     }
 
     public ArrayList<String> getWishlist() {
