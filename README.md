@@ -42,3 +42,16 @@ then you can record the title, wieght class, gender, and the minimum record requ
 - You can locate my visual component in the landing page of the app. Notice the button-like graphics are only for visualizations.
 - You can save the state of my application by going to the File menu and clicking on Save.
 - You can reload the state of my application by going to the File menu and clicking on Load.
+
+## Phase 4: Task 2
+
+Tue Aug 11 04:56:33 PDT 2026   
+Hyrox: Open, has been added to Competetitions  
+Tue Aug 11 04:56:57 PDT 2026  
+Hyrox: NorthShore, has been added to Competetitions  
+Tue Aug 11 04:57:10 PDT 2026  
+Practice instance Julyhas been added to the history  
+Tue Aug 11 04:57:21 PDT 2026  
+Practice instance Augusthas been added to the history  
+Tue Aug 11 04:57:23 PDT 2026  
+Eligible hyrox competitions has been added to wishlist  
