@@ -474,15 +474,15 @@ public class HyroxAppGUI extends JFrame implements ActionListener, WindowListene
     }
 
     @Override
-    public void windowClosed(WindowEvent e) {
-        showLog();
-    }
+    public void windowClosed(WindowEvent e) {}
     
     @Override
     public void windowOpened(WindowEvent e) {}
 
     @Override
-    public void windowClosing(WindowEvent e) {}
+    public void windowClosing(WindowEvent e) {
+        showLog();
+    }
 
     @Override
     public void windowIconified(WindowEvent e) {}
