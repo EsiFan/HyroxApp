@@ -15,6 +15,8 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.*;
@@ -39,7 +41,7 @@ import ca.ubc.cs.ExcludeFromJacocoGeneratedReport;
 
 // Hyrox app w Graphical User Interface
 @ExcludeFromJacocoGeneratedReport
-public class HyroxAppGUI extends JFrame implements ActionListener {
+public class HyroxAppGUI extends JFrame implements ActionListener, WindowListener {
     private static final String JSON_STORE = "./data/hyroxApp.json";
     private Competitions competitions;
     private InstantsHistory instantsHistory;
@@ -95,6 +97,7 @@ public class HyroxAppGUI extends JFrame implements ActionListener {
         this.setSize(1200, 650);
         this.setTitle("HyroxApp");
         this.setLayout(new FlowLayout());
+        this.addWindowListener(this);
 
         panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
@@ -431,13 +434,17 @@ public class HyroxAppGUI extends JFrame implements ActionListener {
         return true;
     }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == quitItem) {
-            Iterator<Event> iterator = EventLog.getInstance().iterator();
+    private void showLog() {
+        Iterator<Event> iterator = EventLog.getInstance().iterator();
             while (iterator.hasNext()) {
                 System.out.println(iterator.next().toString());
             }
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == quitItem) {
+            showLog();
             System.exit(0);
         }
 
@@ -465,4 +472,27 @@ public class HyroxAppGUI extends JFrame implements ActionListener {
             doUpdateWishlist();
         }
     }
+
+    @Override
+    public void windowClosed(WindowEvent e) {
+        showLog();
+    }
+    
+    @Override
+    public void windowOpened(WindowEvent e) {}
+
+    @Override
+    public void windowClosing(WindowEvent e) {}
+
+    @Override
+    public void windowIconified(WindowEvent e) {}
+
+    @Override
+    public void windowDeiconified(WindowEvent e) {}
+
+    @Override
+    public void windowActivated(WindowEvent e) {}
+
+    @Override
+    public void windowDeactivated(WindowEvent e) {}
 }
