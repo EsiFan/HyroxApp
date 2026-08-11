@@ -439,13 +439,13 @@ public class HyroxAppGUI extends JFrame implements ActionListener, WindowListene
             while (iterator.hasNext()) {
                 System.out.println(iterator.next().toString());
             }
+            System.exit(0);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == quitItem) {
             showLog();
-            System.exit(0);
         }
 
         if (e.getSource() == saveItem) {
