@@ -20,13 +20,13 @@ public class InstantsHistory implements Writable {
     // MODIFIES: this
     public void addInstant(InstantHyrox instant) {
         listOfInstants.add(instant);
-        EventLog.getInstance().logEvent(new Event("A practice instance has been added to the history"));
+        EventLog.getInstance().logEvent(
+                new Event("Practice instance " + instant.getTitle() + "has been added to the history"));
     }
 
     public ArrayList<InstantHyrox> getInstantsHistory() {
         return listOfInstants;
     }
-
 
     // EFFECTS: returns the size of the competition
     public int size() {
