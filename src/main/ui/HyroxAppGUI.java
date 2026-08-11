@@ -1,6 +1,8 @@
 package ui;
 
 import model.Competitions;
+import model.Event;
+import model.EventLog;
 import model.Hyrox;
 import model.InstantHyrox;
 import model.InstantsHistory;
@@ -432,6 +434,10 @@ public class HyroxAppGUI extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == quitItem) {
+            Iterator<Event> iterator = EventLog.getInstance().iterator();
+            while (iterator.hasNext()) {
+                System.out.println(iterator.next().toString());
+            }
             System.exit(0);
         }
 
