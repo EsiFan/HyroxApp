@@ -118,7 +118,7 @@ public class HyroxAppGUI extends JFrame implements ActionListener, WindowListene
         this.add(panel);
 
         this.setJMenuBar(menuBar);
-        
+
         this.setVisible(true);
     }
 
@@ -436,10 +436,10 @@ public class HyroxAppGUI extends JFrame implements ActionListener, WindowListene
 
     private void showLog() {
         Iterator<Event> iterator = EventLog.getInstance().iterator();
-            while (iterator.hasNext()) {
-                System.out.println(iterator.next().toString());
-            }
-            System.exit(0);
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next().toString());
+        }
+        System.exit(0);
     }
 
     @Override
@@ -474,10 +474,12 @@ public class HyroxAppGUI extends JFrame implements ActionListener, WindowListene
     }
 
     @Override
-    public void windowClosed(WindowEvent e) {}
-    
+    public void windowClosed(WindowEvent e) {
+    }
+
     @Override
-    public void windowOpened(WindowEvent e) {}
+    public void windowOpened(WindowEvent e) {
+    }
 
     @Override
     public void windowClosing(WindowEvent e) {
@@ -485,14 +487,18 @@ public class HyroxAppGUI extends JFrame implements ActionListener, WindowListene
     }
 
     @Override
-    public void windowIconified(WindowEvent e) {}
+    public void windowIconified(WindowEvent e) {
+    }
 
     @Override
-    public void windowDeiconified(WindowEvent e) {}
+    public void windowDeiconified(WindowEvent e) {
+    }
 
     @Override
-    public void windowActivated(WindowEvent e) {}
+    public void windowActivated(WindowEvent e) {
+    }
 
     @Override
-    public void windowDeactivated(WindowEvent e) {}
+    public void windowDeactivated(WindowEvent e) {
+    }
 }
